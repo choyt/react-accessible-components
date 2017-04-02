@@ -96,33 +96,29 @@ For each combobox pattern the button need not be in the tab order if there is an
 A text box and an associated drop-down list of choices where the choices offered are filtered based on the information typed into the box. Typically, an icon associated with the text box triggers the display of the drop-down list of choices. An editable auto-complete accepts text entry of choices that are not in the list. An example of an editable auto-complete is the URL field in the browsers.
 
 ## Keyboard Interaction
-With focus in an empty text box, press Down Arrow, Up Arrow, Alt + Down Arrow, or Alt + Up Arrow to display the entire list of choices. Focus remains in the text box and no choice is highlighted.
-* Press the Down Arrow to highlight the first choice in the list.
-* Press the Down Arrow and Up Arrow keys to highlight the desired choice in the list.
-* When a choice is highlighted using the arrow keys, the highlighted choice is displayed in the text box.
-* Press Enter to select the highlighted choice and close the drop-down list. This mimics the behavior of the HTML select element.
+* With focus in an empty text box, press Down Arrow, Up Arrow, Alt + Down Arrow, or Alt + Up Arrow to display the entire list of choices. Focus remains in the text box and no choice is highlighted.
+  * Press the Down Arrow to highlight the first choice in the list.
+  * Press the Down Arrow and Up Arrow keys to highlight the desired choice in the list.
+  * When a choice is highlighted using the arrow keys, the highlighted choice is displayed in the text box.
+  * Press Enter to select the highlighted choice and close the drop-down list. This mimics the behavior of the HTML select element.
 * With the drop-down list of choices displayed, move the mouse pointer over an item in the list to highlight it. The text box value is not modified when the mouse is used to highlight a choice. Clicking on the highlighted choice will close the drop-down and update the text box with the selected choice. This mimics the behavior of the HTML select element.
 * With focus in an empty text box, type any letter. If any of the available choices begin with the letter typed, those choices are displayed in a drop down. If the letter typed does not match any of the available choices the drop-down list is not displayed.
 * With focus in text box with an existing value type additional letters. As the user types letters the list of choices is filtered so that only those that begin with the typed letters are displayed.
-* Until the user presses the arrow keys to highlight a particular choice, only the typed letters are displayed in the text box.
-
-In an editable auto-complete, if no choices match the letter(s) typed, the drop down list closes.
-
-In a non-editable auto-complete, any letters that do not result in a match from the list are ignored. The drop down list of choices remains static until the user presses:
-* Escape to clear the text field
-* Backspace to remove some of the letters previously typed
-* an additional letter that results in a valid list of choices.
-
-Navigation through the list of choices and display of the highlighted choice in the text box works as described above.
-
-Optional: When a choice is highlighted via arrow key navigation, the input cursor is left at the end of the typed entry and the highlighted choice is displayed in the text box with the characters after the input cursor selected. Typing an additional character will remove the auto-completed portion and append the newly typed character to the end of the previously typed characters. The list will be filtered based on the additional character(s) typed.
-With focus in a text box, press Escape
-If there is no text in the text box, pressing Escape closes the drop-down if it is displayed.
-For an editable autocomplete that has text in the text box that was both typed by the user and auto-completed by highlighting a choice using the keyboard, the auto-completed portion of the text is cleared and the user typed characters remain in the text box. The drop-down list is closed. To completely clear the text box contents the user must use the backspace key to remove the typed characters. This is how the Google search box in the Firefox UI works. Recommend that pressing the Escape key again completely clears the text box rather than relying on only the backspace key.
-For a non-editable auto-complete that has text in the text box that was both typed by the user and auto-completed by highlighting a choice using the keyboard, pressing Escape closes the drop-down list and leaves the current choice in the text box.
-For an editable or non-editable auto complete with text in the text box that was typed by the user and the mouse is highlighting a choice in the drop down (keyboard navigation was NOT used), pressing Escape closes the drop down and leaves the typed text displayed in the text box. Need to consider if pressing Escape again should clear the typed text. The user must press the Down arrow or Alt + Down arrow or click the associated icon to invoke the drop-down list of choices again.
-Moving focus out of an empty auto complete field where a value is required should either invoke an error or if a default value was initially assigned, reset the value to the default value.
-Moving focus out of an auto complete field that does not contain a valid entry should either invoke an error or if a default value was initially assigned, reset the value to the default value.
+  * Until the user presses the arrow keys to highlight a particular choice, only the typed letters are displayed in the text box.
+  * In an editable auto-complete, if no choices match the letter(s) typed, the drop down list closes.
+  * In a non-editable auto-complete, any letters that do not result in a match from the list are ignored. The drop down list of choices remains static until the user presses:
+    * Escape to clear the text field
+    * Backspace to remove some of the letters previously typed
+    * an additional letter that results in a valid list of choices.
+  * Navigation through the list of choices and display of the highlighted choice in the text box works as described above.
+    * Optional: When a choice is highlighted via arrow key navigation, the input cursor is left at the end of the typed entry and the highlighted choice is displayed in the text box with the characters after the input cursor selected. Typing an additional character will remove the auto-completed portion and append the newly typed character to the end of the previously typed characters. The list will be filtered based on the additional character(s) typed.
+* With focus in a text box, press Escape
+  * If there is no text in the text box, pressing Escape closes the drop-down if it is displayed.
+  * For an editable autocomplete that has text in the text box that was both typed by the user and auto-completed by highlighting a choice using the keyboard, the auto-completed portion of the text is cleared and the user typed characters remain in the text box. The drop-down list is closed. To completely clear the text box contents the user must use the backspace key to remove the typed characters. This is how the Google search box in the Firefox UI works. Recommend that pressing the Escape key again completely clears the text box rather than relying on only the backspace key.
+  * For a non-editable auto-complete that has text in the text box that was both typed by the user and auto-completed by highlighting a choice using the keyboard, pressing Escape closes the drop-down list and leaves the current choice in the text box.
+  * For an editable or non-editable auto complete with text in the text box that was typed by the user and the mouse is highlighting a choice in the drop down (keyboard navigation was NOT used), pressing Escape closes the drop down and leaves the typed text displayed in the text box. Need to consider if pressing Escape again should clear the typed text. The user must press the Down arrow or Alt + Down arrow or click the associated icon to invoke the drop-down list of choices again.
+* Moving focus out of an empty auto complete field where a value is required should either invoke an error or if a default value was initially assigned, reset the value to the default value.
+* Moving focus out of an auto complete field that does not contain a valid entry should either invoke an error or if a default value was initially assigned, reset the value to the default value.
 
 ### NOTE
 It is good practice to limit the number of matching items in the drop down to a reasonable number. The reasonable number is determined by the task at hand. A list of the 50 US States is probably reasonable, but a list containing all of the office numbers in a building is probably not appropriate.
