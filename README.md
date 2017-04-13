@@ -679,3 +679,77 @@ Escape: Dismisses the Tooltip.
 ## WAI-ARIA Roles, States, and Properties
 * The element that serves as the tooltip container has role tooltip.
 * The element that triggers the tooltip references the tooltip element with aria-describedby.
+
+# Aria roles and properties not available in HTML5
+Below are listed the ARIA roles and properties. not considered to be available natively in HTML5. It is clear that many roles and properties provided by ARIA which can be used to convey information to users are not available in HTML5.
+
+## ARIA Roles
+### Covered Above: 
+alert
+alertdialog
+application
+document
+grid
+gridcell
+menu
+menubar
+menuitemcheckbox
+menuitemradio
+presentation
+region
+tab
+tablist
+tabpanel
+toolbar
+tooltip
+
+### Not Covered Above
+directory
+group
+log
+marquee
+note
+scrollbar
+search
+status
+switch
+timer
+tree
+treegrid
+treeitem
+
+## ARIA States and Properties (aria-* attributes)
+aria-activedescendant
+aria-atomic
+aria-busy (state)
+aria-controls
+aria-describedby
+aria-dropeffect
+aria-expanded (state)
+aria-flowto
+aria-grabbed (state)
+aria-haspopup
+aria-hidden (state)
+aria-label
+aria-labelledby
+aria-level
+aria-live
+aria-orientation
+aria-owns
+aria-posinset
+aria-pressed (state)
+aria-relevant
+aria-setsize
+aria-sort
+
+# Custom Control Design Considerations
+Can you get to the control via the keyboard? Refer to Providing Keyboard Focus	
+Can you use the control with the keyboard? Refer to Keyboard Navigation	
+Can you use the control with touch gestures? With assistive technology enabled?	
+Can you operate the control using the standard keys (Refer to ARIA Widget Design Patterns) and/or touch gestures for the control type?	
+Can you easily see it when the control has focus? Refer to Visible Focus (WCAG2)	
+The control has a text label that is exposed as an accessible name in accessibility APIs	
+The control has an appropriate role exposed in accessibility APIs	
+The control has any UI states and properties that it has exposed in accessibility APIs	
+The control label/description/icon is perceivable/usable for low vision users (Use a color contrast checker.)	
+The control is perceivable/usable when High Contrast Mode is enabled (e.g. Windows HC mode)
