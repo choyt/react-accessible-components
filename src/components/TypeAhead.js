@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 const styles = {
   TypeAhead: {
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   }
 };
 

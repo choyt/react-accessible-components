@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 
 const styles = {
   Alert: {
-    textAlign: 'center'
+    textAlign: 'center',
   }
 };
 

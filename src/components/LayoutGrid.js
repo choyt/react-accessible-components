@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 
 const styles = {
   LayoutGrid: {
-    textAlign: 'center'
+    textAlign: 'center',
   }
 };
 

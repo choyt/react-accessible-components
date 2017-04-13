@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 
 const styles = {
   DropdownList: {
-    textAlign: 'center'
+    textAlign: 'center',
   }
 };
 

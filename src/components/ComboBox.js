@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 
 const styles = {
   ComboBox: {
-    textAlign: 'center'
+    textAlign: 'center',
   }
 };
 

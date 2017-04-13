@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 
 const styles = {
   PartialCheckbox: {
-    textAlign: 'center'
+    textAlign: 'center',
   }
 };
 
