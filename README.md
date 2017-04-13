@@ -8,7 +8,7 @@ Because alerts are intended to provide important and potentially time-sensitive 
 It is also important to avoid designing alerts that disappear automatically. An alert that disappears too quickly can lead to failure to meet WCAG 2.0 success criterion 2.2.3. Another critical design consideration is the frequency of interruption caused by alerts. Frequent interruptions inhibit usability for people with visual and cognitive disabilities, which makes meeting the requirements of WCAG 2.0 success criterion 2.2.4 more difficult.
 
 ## Keyboard Interaction
-An alert (WAI-ARIA live region) does not require any keyboard interaction.## 
+An alert (WAI-ARIA live region) does not require any keyboard interaction.##
 WAI-ARIA Roles, States, and Properties: The widget has a role of alert.
 
 # Toggle button
@@ -230,7 +230,7 @@ The feed pattern enables reliable assistive technology reading mode interaction 
   * Indicating which article contains the reading cursor by ensuring the article element or one of its descendants has DOM focus.
   * providing reading mode keys that move DOM focus to the next and previous articles.
   * Providing reading mode keys for moving the reading cursor and DOM focus past the end and before the start of the feed.
-  
+
 Thus, implementing the feed pattern allows a screen reader to reliably read and trigger the loading of feed content while staying in its reading mode.
 
 Another feature of the feed pattern is its ability to facilitate skim reading for assistive technology users. Web page authors may provide both an accessible name and description for each article. By identifying the elements inside of an article that provide the title and the primary content, assistive technologies can provide functions that enable users to jump from article to article and efficiently discern which articles may be worthy of more attention.
@@ -387,7 +387,7 @@ When grid navigation is disabled, conventional changes to navigation behaviors i
 ## WAI-ARIA Roles, States, and Properties
 * The grid container has role grid.
 * Each row container has role row and is either a DOM descendant of or owned by the grid element or an element with role rowgroup.
-* Each cell is either a DOM descendant of or owned by a row element and has one of the following roles: 
+* Each cell is either a DOM descendant of or owned by a row element and has one of the following roles:
   * columnheader if the cell contains a title or header information for the column.
   * rowheader if the cell contains title or header information for the row.
   * gridcell if the cell does not contain column or row header information.
@@ -684,7 +684,7 @@ Escape: Dismisses the Tooltip.
 Below are listed the ARIA roles and properties. not considered to be available natively in HTML5. It is clear that many roles and properties provided by ARIA which can be used to convey information to users are not available in HTML5.
 
 ## ARIA Roles
-### Covered Above: 
+### Covered Above:
 alert
 alertdialog
 application
@@ -743,13 +743,13 @@ aria-setsize
 aria-sort
 
 # Custom Control Design Considerations
-Can you get to the control via the keyboard? Refer to Providing Keyboard Focus	
-Can you use the control with the keyboard? Refer to Keyboard Navigation	
-Can you use the control with touch gestures? With assistive technology enabled?	
-Can you operate the control using the standard keys (Refer to ARIA Widget Design Patterns) and/or touch gestures for the control type?	
-Can you easily see it when the control has focus? Refer to Visible Focus (WCAG2)	
-The control has a text label that is exposed as an accessible name in accessibility APIs	
-The control has an appropriate role exposed in accessibility APIs	
-The control has any UI states and properties that it has exposed in accessibility APIs	
-The control label/description/icon is perceivable/usable for low vision users (Use a color contrast checker.)	
+Can you get to the control via the keyboard? Refer to Providing Keyboard Focus
+Can you use the control with the keyboard? Refer to Keyboard Navigation
+Can you use the control with touch gestures? With assistive technology enabled?
+Can you operate the control using the standard keys (Refer to ARIA Widget Design Patterns) and/or touch gestures for the control type?
+Can you easily see it when the control has focus? Refer to Visible Focus (WCAG2)
+The control has a text label that is exposed as an accessible name in accessibility APIs
+The control has an appropriate role exposed in accessibility APIs
+The control has any UI states and properties that it has exposed in accessibility APIs
+The control label/description/icon is perceivable/usable for low vision users (Use a color contrast checker.)
 The control is perceivable/usable when High Contrast Mode is enabled (e.g. Windows HC mode)

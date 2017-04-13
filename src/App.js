@@ -1,5 +1,6 @@
 import React from 'react';
 import injectSheet from 'react-jss';
+import TypeAhead from './components/TypeAhead';
 
 const styles = {
   App: {
@@ -16,6 +17,7 @@ const App = ({classes}) => {
       <p className="App-intro">
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
+      <TypeAhead />
     </div>
   );
 }
