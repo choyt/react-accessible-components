@@ -1,3 +1,8 @@
+npm install
+npm start
+visit localhost:3000
+that's it
+
 This project was created to provide a set of components which conform to the latest recommendations made by the WAI-ARIA accessibility group. The recommendations followed are these:
 
 # Alert
