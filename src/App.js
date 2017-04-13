@@ -1,6 +1,5 @@
 import React from 'react';
 import injectSheet from 'react-jss';
-import TypeAhead from './components/TypeAhead';
 
 const styles = {
   App: {
@@ -12,12 +11,11 @@ const App = ({classes}) => {
   return (
     <div className={classes.App}>
       <div className="App-header">
-        <h2>Welcome to React</h2>
+        <h2>Why are these components so spare?</h2>
       </div>
       <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
+        The focus of this project is correctness and accessibility, rather than, say, copying common conventions of how buttons ought be styled.
       </p>
-      <TypeAhead />
     </div>
   );
 }
