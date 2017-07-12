@@ -133,7 +133,6 @@ It is good practice to limit the number of matching items in the drop down to a 
 ## WAI-ARIA Roles, States, And Properties
 The widget has a role of combobox.
 The combobox has an aria-autocomplete property set to one of 'inline', 'list', or 'both'.
-For more information, see the combobox design pattern.
 
 # Modal Dialog
 A dialog is a window overlayed on either the primary window or another dialog window. The window under a modal dialog is typically inert; users cannot interact with content outside the dialog window. If the background window is not inert, then interaction with elements in the background window cause the modal window to close.
@@ -302,8 +301,8 @@ The following keys provide grid navigation by moving focus among cells of the gr
 * Control + End: moves focus to the last cell in the last row.
 
 ### NOTE
-* When the above grid navigation keys move focus, whether the focus is set on an element inside the cell or the grid cell depends on cell content. See Whether to Focus on a Cell or an Element Inside It.
-* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a combobox or move an editing caret inside of a cell. If this functionality is needed, see Editing and Navigating Inside a Cell.
+* When the above grid navigation keys move focus, whether the focus is set on an element inside the cell or the grid cell depends on cell content.
+* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a combobox or move an editing caret inside of a cell.
 * If navigation functions can dynamically add more rows or columns to the DOM, key events that move focus to the beginning or end of the grid, such as control + End, may move focus to the last row in the DOM rather than the last available row in the back-end data.
 
 If a grid supports selection of cells, rows, or columns, the following keys are commonly used for these functions.
@@ -314,9 +313,6 @@ If a grid supports selection of cells, rows, or columns, the following keys are 
 * Shift + Left Arrow: Extends selection one cell to the left.
 * Shift + Down Arrow: Extends selection one cell down.
 * Shift + Up Arrow: Extends selection one cell Up.
-
-### NOTE
-See Global Recommendations for cut, copy and paste key assignments.
 
 ## Layout Grids for Grouping Widgets
 The grid pattern can be used to group a set of interactive elements, such as links, buttons, or checkboxes. Since only one element in the entire grid is included in the tab sequence, grouping with a grid can dramatically reduce the number of tab stops on a page. This is especially valuable if scrolling through a list of elements dynamically loads more of those elements from a large data set, such as in a continuous list of suggested products on a shopping site. If elements in a list like this were in the tab sequence, keyboard users are effectively trapped in the list. If any elements in the group also have associated elements that appear on hover, the grid pattern is also useful for providing keyboard access to those contextual elements of the user interface.
@@ -330,7 +326,7 @@ The following keys provide grid navigation by moving focus among cells of the gr
 
 * Right Arrow: Moves focus one cell to the right. Optionally, if focus is on the right-most cell in the row, focus may move to the first cell in the following row. If focus is on the last cell in the grid, focus does not move.
 * Left Arrow: Moves focus one cell to the left. Optionally, if focus is on the left-most cell in the row, focus may move to the last cell in the previous row. If focus is on the first cell in the grid, focus does not move.
-* * Down Arrow: Moves focus one cell down. Optionally, if focus is on the bottom cell in the column, focus may move to the top cell in the following column. If focus is on the last cell in the grid, focus does not move.
+* Down Arrow: Moves focus one cell down. Optionally, if focus is on the bottom cell in the column, focus may move to the top cell in the following column. If focus is on the last cell in the grid, focus does not move.
 * Up Arrow: Moves focus one cell up. Optionally, if focus is on the top cell in the column, focus may move to the bottom cell in the previous column. If focus is on the first cell in the grid, focus does not move.
 * Page Down (Optional): Moves focus down an author-determined number of rows, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row of the grid, focus does not move.
 * Page Up (Optional): Moves focus up an author-determined number of rows, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row of the grid, focus does not move.
@@ -340,8 +336,8 @@ The following keys provide grid navigation by moving focus among cells of the gr
 * Control + End (Optional): moves focus to the last cell in the last row.
 
 ### NOTE
-* When the above grid navigation keys move focus, whether the focus is sett on an element inside the cell or the grid cell depends on cell content. See Whether to Focus on a Cell or an Element Inside It.
-* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a combobox or move an editing caret inside of a cell. If this functionality is needed, see Editing and Navigating Inside a Cell.
+* When the above grid navigation keys move focus, whether the focus is sett on an element inside the cell or the grid cell depends on cell content.
+* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a combobox or move an editing caret inside of a cell.
 * If navigation functions can dynamically add more rows or columns to the DOM, key events that move focus to the beginning or end of the grid, such as control + End, may move focus to the last row in the DOM rather than the last available row in the back-end data.
 
 It would be unusual for a layout grid to provide functions that require cell selection. If it did, though, the following keys are commonly used for these functions.
@@ -410,7 +406,7 @@ When grid navigation is disabled, conventional changes to navigation behaviors i
 
 ### NOTE
 * If the element with the grid role is an HTML table element, then it is not necessary to use ARIA roles for rows and cells because the HTML elements have implied ARIA semantics. For example, an HTML <TR> has an implied ARIA role of row. A grid built from an HTML table that includes cells that span multiple rows or columns must use HTML rowspan and colspan and must not use aria-rowspan or aria-colspan.
-* If rows or cells are included in a grid via aria-owns, they will be presented to assistive technologies after the DOM descendants of the grid element unless the DOM descendants are also included in the aria-owns attribute. See using aria-owns for a detailed explanation.
+* If rows or cells are included in a grid via aria-owns, they will be presented to assistive technologies after the DOM descendants of the grid element unless the DOM descendants are also included in the aria-owns attribute.
 
 # Listbox
 A listbox widget presents a list of options and allows a user to select one or more of them. A listbox that allows a single option to be chosen is a single-select listbox; one that allows multiple options to be selected is a multi-select listbox.
@@ -457,9 +453,9 @@ For a vertically oriented listbox:
     * Control + A (Optional): Selects all options in the list. Optionally, if all options are selected, it may also unselect all options.
 
 ### NOTE
-* DOM focus (the active element) is functionally distinct from the selected state. For more details, see this description of differences between focus and selection.
-* The listbox role supports the aria-activedescendant property, which provides an alternative to moving DOM focus among treeitem elements when implementing keyboard navigation. For details, see Managing Focus in Composites Using aria-activedescendant.
-* In a single-select listbox, moving focus may optionally unselect the previously selected option and select the newly focused option. This model of selection is known as "selection follows focus". Having selection follow focus can be very helpful in some circumstances and can severely degrade accessibility in others. For additional guidance, see Deciding When to Make Selection Automatically Follow Focus.
+* DOM focus (the active element) is functionally distinct from the selected state.
+* The listbox role supports the aria-activedescendant property, which provides an alternative to moving DOM focus among treeitem elements when implementing keyboard navigation.
+* In a single-select listbox, moving focus may optionally unselect the previously selected option and select the newly focused option. This model of selection is known as "selection follows focus". Having selection follow focus can be very helpful in some circumstances and can severely degrade accessibility in others.
 * If selecting or unselecting all options is an important function, implementing separate controls for these actions, such as buttons for "Select All" and "Unselect All", significantly improves accessibility.
 * If the options in a listbox are arranged horizontally:
   * Down Arrow performs as Right Arrow is described above, and vice versa.
@@ -574,8 +570,6 @@ A menu button is a button that opens a menu. It is often styled as a typical pus
 * The roles, states, and properties needed for the menu opened by the button are described in 2.16 Menu or Menu bar.
 
 # Slider (Multi-Thumb)
-Work on this design pattern is in progress and is tracked in issue 221. Please provide any feedback in that issue.
-
 A multi-thumb slider is a slider with two or more thumbs that each set a value in a group of related values. Many two-thumb sliders set a maximum and minimum value for a range, and the thumbs are not allowed to pass one another. That is, the mthumb that sets the upper value of the range can not be set lower than the thumb that controls the lower value of the range. However, in some multi-thumb sliders, each thumb sets a value that does not depend on the other thumb values.
 
 ## Keyboard Interaction
@@ -607,8 +601,6 @@ Terms used to describe this design pattern include:
 When a tabbed interface is initialized, one tab panel is displayed and its associated tab is styled to indicate that it is active. When the user activates one of the other tab elements, the previously displayed tab panel is hidden, the tab panel associated with the activated tab becomes visible, and the tab is considered "active".
 
 ## Keyboard Interaction
-For the tab list:
-
 * Tab: When focus moves into the tab list, places focus on the active tab element . When the tab list contains the focus, moves focus to the next element in the page tab sequence outside the tablist, which is typically either the first focusable element inside the tab panel or the tab panel itself.
 When focus is on a tab element in a horizontal tab list:
 * Left Arrow: moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab. Optionally, activates the newly focused tab (See note below).
@@ -621,7 +613,7 @@ When focus is on a tab in a tablist with either horizontal or vertical orientati
 * Delete (Optional): If deletion is allowed, deletes (closes) the current tab element and its associated tab panel. If any tabs remain, sets focus to the tab following the tab that was closed and activates the newly focused tab. Alternatively, or in addition, the delete function is available in a context menu.
 
 ### NOTE
-It is recommended that tabs activate automatically when they receive focus as long as their associated tab panels are displayed without noticeable latency. This typically requires tab panel content to be preloaded. Otherwise, automatic activation slows focus movement, which significantly hampers users' ability to navigate efficiently across the tab list. For additional guidance, see 4.4 Deciding When to Make Selection Automatically Follow Focus.
+It is recommended that tabs activate automatically when they receive focus as long as their associated tab panels are displayed without noticeable latency. This typically requires tab panel content to be preloaded. Otherwise, automatic activation slows focus movement, which significantly hampers users' ability to navigate efficiently across the tab list.
 
 If the tabs in a tab list are arranged vertically:
 * Down Arrow performs as Right Arrow is described above.
@@ -661,7 +653,7 @@ For a horizontal toolbar (the default):
 * If the items in a toolbar are arranged vertically:
   * Down Arrow performs as Right Arrow is described above.
   * Up Arrow performs as Left Arrow is described above.
-* Typically, disabled elements are not focusable when navigating with a keyboard. However, in circumstances where discoverability of a function is crucial, it may be helpful if disabled controls are focusable so screen reader users are more likely to be aware of their presence. For additional guidance, see 4.7 Focusability of disabled controls.
+* Typically, disabled elements are not focusable when navigating with a keyboard. However, in circumstances where discoverability of a function is crucial, it may be helpful if disabled controls are focusable so screen reader users are more likely to be aware of their presence.
 * In applications where quick access to a toolbar is important, such as accessing an editor's toolbar from its text area, a documented shortcut key for moving focus from the relevant context to its corresponding toolbar is recommended.
 
 ## WAI-ARIA Roles, States, And Properties
@@ -670,8 +662,6 @@ For a horizontal toolbar (the default):
 * If the controls are arranged vertically, the toolbar element has aria-orientation set to vertical. The default orientation is horizontal.
 
 # Tooltip Widget
-Work on this design pattern is in progress and tracked by issue 128. Please provide feedback in that issue.
-
 A tooltip is a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it. It typically appears after a small delay and disappears when Escape is pressed or on mouse out.
 
 Tooltip widgets do not receive focus. A hover that contains focusable elements can be made using the a non-modal dialog pattern.
@@ -688,7 +678,7 @@ Escape: Dismisses the Tooltip.
 * The element that triggers the tooltip references the tooltip element with aria-describedby.
 
 # Aria Roles And Properties Not Available In HTML5
-Below are listed the ARIA roles and properties. not considered to be available natively in HTML5. It is clear that many roles and properties provided by ARIA which can be used to convey information to users are not available in HTML5.
+Below are listed the ARIA roles and properties not considered to be available natively in HTML5.
 
 ## ARIA Roles
 
@@ -751,13 +741,14 @@ Below are listed the ARIA roles and properties. not considered to be available n
 * aria-sort
 
 # Custom Control Design Considerations
-* Can you get to the control via the keyboard? Refer to Providing Keyboard Focus
-* Can you use the control with the keyboard? Refer to Keyboard Navigation
-* Can you use the control with touch gestures? With assistive technology enabled?
-* Can you operate the control using the standard keys (Refer to ARIA Widget Design Patterns) and/or touch gestures for the control type?
-* Can you easily see it when the control has focus? Refer to Visible Focus (WCAG2)
-* The control has a text label that is exposed as an accessible name in accessibility APIs
-* The control has an appropriate role exposed in accessibility APIs
-* The control has any UI states and properties that it has exposed in accessibility APIs
-* The control label/description/icon is perceivable/usable for low vision users (Use a color contrast checker.)
-* The control is perceivable/usable when High Contrast Mode is enabled (e.g. Windows HC mode)
+* Can you get to the control via the keyboard?
+* Can you use the control with the keyboard?
+* Can you use the control with touch gestures? 
+  * With assistive technology enabled?
+* Can you operate the control using the standard keys and/or touch gestures for the control type?
+* Can you easily see it when the control has focus?
+* Does the control have a text label that is exposed as an accessible name in accessibility APIs?
+* Does the control have an appropriate role exposed in accessibility APIs?
+* Are the control's UI states and properties exposed in accessibility APIs?
+* Is the control's label/description/icon perceivable/usable for low vision users?
+* Is the control perceivable/usable when High Contrast Mode is enabled?
