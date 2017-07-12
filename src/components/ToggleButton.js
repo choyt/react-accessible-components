@@ -23,19 +23,18 @@ const styles = {
   },
 };
 
-const ToggleButton = ({activated, handleToggle, text, classes, children}) => {
-  return (
-    <div className={classes.ToggleButton}>
-      <button 
-        className={classNames({
-          [classes.Button]: true,
-          [classes.Activated]: activated,
-        })}
-        onClick={handleToggle}>
-        {text}
-      </button>
-    </div>
+const ToggleButton = ({ activated, handleToggle, text, classes }) => (
+  <div className={classes.ToggleButton}>
+    <button
+      className={classNames({
+        [classes.Button]: true,
+        [classes.Activated]: activated,
+      })}
+      onClick={handleToggle}
+    >
+      {text}
+    </button>
+  </div>
   );
-}
 
 export default injectSheet(styles)(ToggleButton);

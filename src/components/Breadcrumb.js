@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-const Breadcrumb = ({data, classes}) => {
+const Breadcrumb = ({ data, classes }) => {
   const crumbJoin = (arr, sep) => {
     var lastIdx = arr.length - 1;
     return arr.reduce((res, val, idx) => {

@@ -7,6 +7,9 @@ const styles = {
     textAlign: 'center',
   },
   Highlighted: {},
+  Input: {
+    textAlign: 'center',
+  },
   Title: {
     cursor: 'pointer',
     font: '13.3333px Arial',
@@ -28,29 +31,30 @@ const ComboBox = ({
   inputValue,
   options,
   textInput,
-  classes}) => {
-    return (
-      <div className={classes.ComboBox}>
-        <input
-          type='text'
-          value={inputValue}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}/>
-        <div>
-          {options.map((item, idx) => (
-            <div
-              key={idx}
-              onClick={() => handleClick(idx)}
-              className={classNames({
-                [classes.Highlighted]: idx === highlightedIdx,
-                [classes.Title]: true,
-              })}>
-              {item}
-            </div>
+  classes }) => (
+    <div className={classes.ComboBox}>
+      <input
+        type='text'
+        value={inputValue}
+        className={classes.Input}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <div>
+        {options.map((item, idx) => (
+          <div
+            key={idx}
+            onClick={() => handleClick(idx)}
+            className={classNames({
+              [classes.Highlighted]: idx === highlightedIdx,
+              [classes.Title]: true,
+            })}
+          >
+            {item}
+          </div>
           ))}
-        </div>
       </div>
+    </div>
     );
-}
 
 export default injectSheet(styles)(ComboBox);

@@ -5,15 +5,13 @@ const styles = {
   TypeAhead: {
     textAlign: 'center',
     fontWeight: 'bold',
-  }
+  },
 };
 
-const TypeAhead = ({classes}) => {
-  return (
-    <div className={classes.TypeAhead}>
-      <p>TypeAhead</p>
-    </div>
+const TypeAhead = ({ classes }) => (
+  <div className={classes.TypeAhead}>
+    <p>TypeAhead</p>
+  </div>
   );
-}
 
 export default injectSheet(styles)(TypeAhead);

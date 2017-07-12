@@ -4,15 +4,13 @@ import injectSheet from 'react-jss';
 const styles = {
   PartialCheckbox: {
     textAlign: 'center',
-  }
+  },
 };
 
-const PartialCheckbox = ({classes}) => {
-  return (
-    <div className={classes.PartialCheckbox}>
-      <p>PartialCheckbox</p>
-    </div>
+const PartialCheckbox = ({ classes }) => (
+  <div className={classes.PartialCheckbox}>
+    <p>PartialCheckbox</p>
+  </div>
   );
-}
 
 export default injectSheet(styles)(PartialCheckbox);

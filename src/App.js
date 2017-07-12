@@ -41,22 +41,22 @@ class App extends React.Component {
   handleComboBoxChange(e) {
     const v = e.target.value;
     this.setState(update(this.state, {
-      comboBoxInputValue: {$set: v},
-      comboBoxOptions: {$set: comboBoxOptions.filter(i => i.includes(v))}
+      comboBoxInputValue: { $set: v },
+      comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
     }));
   }
 
   handleComboBoxClick(idx) {
     const v = this.state.comboBoxOptions[idx];
     this.setState(update(this.state, {
-      comboBoxInputValue: {$set: v},
-      comboBoxOptions: {$set: comboBoxOptions.filter(i => i.includes(v))}
+      comboBoxInputValue: { $set: v },
+      comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
     }));
   }
 
   handleComboBoxKeyDown(e) {
     let newIdx = -1;
-    switch(e.key) {
+    switch (e.key) {
       case 'ArrowDown':
         newIdx = Math.min(
           this.state.comboBoxHighlighted + 1,
@@ -83,12 +83,12 @@ class App extends React.Component {
         this.setState({
           comboBoxInputValue: newVal,
         });
-      break;
+        break;
 
       default:
     }
   }
-  
+
   toggleAccordion(num) {
     if (num === this.state.accordionOpen) {
       this.setState({
@@ -106,51 +106,54 @@ class App extends React.Component {
       toggleActivated: !this.state.toggleActivated,
     });
   }
-  
+
   toggleListBox(idx) {
     const containingIdx = this.state.toggledListBoxIndices.indexOf(idx);
     if (containingIdx === -1) {
       this.setState({
         toggledListBoxIndices: update(this.state.toggledListBoxIndices,
-          {$push: [idx]}),
-        });
+          { $push: [idx] }),
+      });
     } else {
       this.setState({
         toggledListBoxIndices: update(this.state.toggledListBoxIndices,
-          {$splice: [[containingIdx, 1]]}),
-        });
+          { $splice: [[containingIdx, 1]] }),
+      });
     }
   }
-  
+
   render() {
     const classes = this.props.classes;
     return (
       <div className={classes.App}>
         <h3 className={classes.Heading}>Toolbar</h3>
-        <Toolbar data={['Home', 'Forum', 'Chat']}/>
+        <Toolbar data={['Home', 'Forum', 'Chat']} />
         <h3 className={classes.Heading}>Breadcrumb</h3>
-        <Breadcrumb data={[
-          {text: 'Home', link: '/#/home'},
-          {text: 'Forum', link: '/#/forum'},
-          {text: 'Chat', link: '/#/chat'},
-        ]}/>
+        <Breadcrumb
+          data={[
+          { text: 'Home', link: '/#/home' },
+          { text: 'Forum', link: '/#/forum' },
+          { text: 'Chat', link: '/#/chat' },
+          ]}
+        />
         <h3 className={classes.Heading}>ToggleButton</h3>
-        <ToggleButton 
+        <ToggleButton
           handleToggle={this.toggleButton}
           activated={this.state.toggleActivated}
           text='Toggle Button'
         />
         <h3 className={classes.Heading}>Accordion</h3>
-        <Accordion 
+        <Accordion
           handleToggle={this.toggleAccordion}
           activated={this.state.accordionOpen}
           data={[
-          {title: 'Home', text: 'Some text'},
-          {title: 'Forum', text: 'Some more text'},
-          {title: 'Chat', text: 'Even more text'},
-        ]}/>
+          { title: 'Home', text: 'Some text' },
+          { title: 'Forum', text: 'Some more text' },
+          { title: 'Chat', text: 'Even more text' },
+          ]}
+        />
         <h3 className={classes.Heading}>ListBox</h3>
-        <ListBox 
+        <ListBox
           handleToggle={this.toggleListBox}
           toggledIndices={this.state.toggledListBoxIndices}
           data={['Home', 'Forum', 'Chat']}
@@ -162,7 +165,8 @@ class App extends React.Component {
           handleKeyDown={this.handleComboBoxKeyDown}
           highlightedIdx={this.state.comboBoxHighlighted}
           inputValue={this.state.comboBoxInputValue}
-          options={this.state.comboBoxOptions}/>
+          options={this.state.comboBoxOptions}
+        />
       </div>
     );
   }

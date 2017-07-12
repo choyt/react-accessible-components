@@ -22,22 +22,21 @@ const styles = {
   Toggled: {},
 };
 
-const ListBox = ({handleToggle, toggledIndices, data, classes}) => {
-  return (
-    <div className={classes.ListBox}>
-      {data.map((item, idx) => (
-        <button
-          key={idx}
-          onClick={() => handleToggle(idx)}
-          className={classNames({
-            [classes.Toggled]: toggledIndices.indexOf(idx) !== -1,
-            [classes.Title]: true,
-          })}>
-          {item}
-        </button>
+const ListBox = ({ handleToggle, toggledIndices, data, classes }) => (
+  <div className={classes.ListBox}>
+    {data.map((item, idx) => (
+      <button
+        key={idx}
+        onClick={() => handleToggle(idx)}
+        className={classNames({
+          [classes.Toggled]: toggledIndices.indexOf(idx) !== -1,
+          [classes.Title]: true,
+        })}
+      >
+        {item}
+      </button>
       ))}
-    </div>
+  </div>
   );
-}
 
 export default injectSheet(styles)(ListBox);
