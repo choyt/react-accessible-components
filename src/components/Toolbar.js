@@ -23,7 +23,7 @@ const Toolbar = ({data, classes}) => {
     <div className={classes.Toolbar}>
       {data.map((item, idx) => (
         <button key={idx} className={classes.Button}>
-          {item.text}
+          {item}
         </button>
       ))}
     </div>

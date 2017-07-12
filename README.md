@@ -57,8 +57,8 @@ When the checkbox has focus, pressing the Space key changes the state of the che
 * If a set of checkboxes is presented as a logical group with a visible label, the checkboxes are included in an element with role group that has the property aria-labelledby set to the ID of the element containing the label.
 * If the presentation includes additional descriptive static text relevant to a checkbox or checkbox group, the checkbox or checkbox group has the property aria-describedby set to the ID of the element containing the description.
 
-# Combo Box
-A combo box enables the user to type in a field and at the same time chose a predefined value from a list. By using the keyboard the user can select an item from the list. After selection she will be able to type further characters in the field.
+# ComboBox
+A ComboBox enables the user to type in a field and at the same time chose a predefined value from a list. By using the keyboard the user can select an item from the list. After selection she will be able to type further characters in the field.
 
 ## Keyboard Interaction
 * Left Arrow or Right Arrow move the caret within the edit field.
@@ -70,34 +70,34 @@ A combo box enables the user to type in a field and at the same time chose a pre
 * Typing a letter (printable character) key moves focus to the next instance of a visible node whose title begins with that printable letter.
 
 ## WAI-ARIA Roles, States, And Properties
-A combobox can be implemented using either of two design patterns:
+A ComboBox can be implemented using either of two design patterns:
 
 * As a combination of text field, which may be editable, a displayable list of items, and a drop button to toggle the display of that list; all wrapped in the form of a single widget with role of combobox.
-* As a combobox, which behaves like a textfield and may be editable, with a displayable list of items, and a drop button to toggle the display of that list;
+* As a ComboBox, which behaves like a textfield and may be editable, with a displayable list of items, and a drop button to toggle the display of that list;
 
-Like text fields a combobox should be labeled to convey the purpose of the widget. Keyboard focus within the widget must be managed by the widget. Comboboxes are used extensively in graphical user interfaces and the design pattern for the widget should be semantically correct.
+Like text fields a ComboBox should be labeled to convey the purpose of the widget. Keyboard focus within the widget must be managed by the widget. ComboBoxes are used extensively in graphical user interfaces and the design pattern for the widget should be semantically correct.
 
-For the first combobox design pattern:
-* The container element that wraps the combobox has a role of combobox.
-* The first element within the combobox is an input text field and is responsible for managing the keyboard focus between the text field and the list as well as displaying the list. The text field is in the tab order. If you create a text field without using a standard HTML text field form control then ensure that it is in the tab order.
+For the first ComboBox design pattern:
+* The container element that wraps the ComboBox has a role of combobox.
+* The first element within the ComboBox is an input text field and is responsible for managing the keyboard focus between the text field and the list as well as displaying the list. The text field is in the tab order. If you create a text field without using a standard HTML text field form control then ensure that it is in the tab order.
 * If the text field is not editable it must have have aria-readonly = true.
-* The combobox must have aria-expanded = true if the list is displayed or aria-expanded = false when it is not.
-* The next element is an html <button>, or another element with a role of button. This element is used to toggle the display of the combobox's drop down list.
+* The ComboBox must have aria-expanded = true if the list is displayed or aria-expanded = false when it is not.
+* The next element is an html <button>, or another element with a role of button. This element is used to toggle the display of the ComboBox's drop down list.
 * The next element has a listbox role and represents the drop down list. It manages keyboard navigation among list items and navigating back to the text field if necessary.
 * Each item in the listbox is an option. Options are not in the tab order.
-* Provide a label for the combobox by referencing the text field in the combobox. You can use an aria-label to associate this label with the combobox or you may use the HTML <label> element and its for attribute to reference the text field.
+* Provide a label for the ComboBox by referencing the text field in the ComboBox. You can use an aria-label to associate this label with the ComboBox or you may use the HTML <label> element and its for attribute to reference the text field.
 
-For the second combobox design pattern:
-* The first element for the combobox has a role of combobox and behaves like an input text field and is responsible for managing the keyboard focus between the combobox and the list as well as displaying the list. The text field is in the tab order. If you create a text field without using a standard HTML text field form control then ensure that it is in the tab order.
-* If the combobox is not editable it must have have aria-readonly = true.
-* The combobox must have aria-expanded = true if the list is displayed or aria-expanded = false when it is not.
-* The next element is an html <button>, or another element with a role of button. This element is used to toggle the display of the combobox's drop down list.
+For the second ComboBox design pattern:
+* The first element for the ComboBox has a role of combobox and behaves like an input text field and is responsible for managing the keyboard focus between the ComboBox and the list as well as displaying the list. The text field is in the tab order. If you create a text field without using a standard HTML text field form control then ensure that it is in the tab order.
+* If the ComboBox is not editable it must have have aria-readonly = true.
+* The ComboBox must have aria-expanded = true if the list is displayed or aria-expanded = false when it is not.
+* The next element is an html <button>, or another element with a role of button. This element is used to toggle the display of the ComboBox's drop down list.
 * The next element has a listbox role and represents the drop down list. It manages keyboard navigation among list items and navigating back to the text field if necessary.
 * Each item in the listbox is an option. Options are not in the tab order.
 
-Provide a label for the combobox by referencing the text field in the combobox. You can use an aria-label to associate this label with the combobox or you may use the HTML <label> element and its for attribute to reference the text field.
+Provide a label for the ComboBox by referencing the text field in the ComboBox. You can use an aria-label to associate this label with the ComboBox or you may use the HTML <label> element and its for attribute to reference the text field.
 
-For each combobox pattern the button need not be in the tab order if there is an appropriate keystroke associated with the input element such that when focus is on the input , the keystroke triggers display of the associated drop down list. In this case, a Tab to focus the button is unnecessary. This is the same behavior as the select element.
+For each ComboBox pattern the button need not be in the tab order if there is an appropriate keystroke associated with the input element such that when focus is on the input , the keystroke triggers display of the associated drop down list. In this case, a Tab to focus the button is unnecessary. This is the same behavior as the select element.
 
 # Auto Complete
 A text box and an associated drop-down list of choices where the choices offered are filtered based on the information typed into the box. Typically, an icon associated with the text box triggers the display of the drop-down list of choices. An editable auto-complete accepts text entry of choices that are not in the list. An example of an editable auto-complete is the URL field in the browsers.
@@ -132,7 +132,7 @@ It is good practice to limit the number of matching items in the drop down to a 
 
 ## WAI-ARIA Roles, States, And Properties
 The widget has a role of combobox.
-The combobox has an aria-autocomplete property set to one of 'inline', 'list', or 'both'.
+The ComboBox has an aria-autocomplete property set to one of 'inline', 'list', or 'both'.
 
 # Modal Dialog
 A dialog is a window overlayed on either the primary window or another dialog window. The window under a modal dialog is typically inert; users cannot interact with content outside the dialog window. If the background window is not inert, then interaction with elements in the background window cause the modal window to close.
@@ -302,7 +302,7 @@ The following keys provide grid navigation by moving focus among cells of the gr
 
 ### NOTE
 * When the above grid navigation keys move focus, whether the focus is set on an element inside the cell or the grid cell depends on cell content.
-* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a combobox or move an editing caret inside of a cell.
+* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a ComboBox or move an editing caret inside of a cell.
 * If navigation functions can dynamically add more rows or columns to the DOM, key events that move focus to the beginning or end of the grid, such as control + End, may move focus to the last row in the DOM rather than the last available row in the back-end data.
 
 If a grid supports selection of cells, rows, or columns, the following keys are commonly used for these functions.
@@ -337,7 +337,7 @@ The following keys provide grid navigation by moving focus among cells of the gr
 
 ### NOTE
 * When the above grid navigation keys move focus, whether the focus is sett on an element inside the cell or the grid cell depends on cell content.
-* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a combobox or move an editing caret inside of a cell.
+* While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to do something like operate a ComboBox or move an editing caret inside of a cell.
 * If navigation functions can dynamically add more rows or columns to the DOM, key events that move focus to the beginning or end of the grid, such as control + End, may move focus to the last row in the DOM rather than the last available row in the back-end data.
 
 It would be unusual for a layout grid to provide functions that require cell selection. If it did, though, the following keys are commonly used for these functions.
@@ -365,7 +365,7 @@ There are two optimal cell design and focus behavior combinations:
 While any combination of widgets, text, and graphics may be included in a single cell, grids that do not follow one of these two cell design and focus movement patterns add complexity for authors or users or both. The reference implementations included in the example section below demonstrate some strategies for making other cell designs as accessible as possible, but the most widely accessible experiences are likely to come by applying the above two patterns.
 
 ### Editing And Navigating Inside A Cell
-While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to perform actions like operate a combobox or move an editing caret inside of a cell. The user may need keys that are used for grid navigation to operate elements inside a cell if a cell contains:
+While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to perform actions like operate a ComboBox or move an editing caret inside of a cell. The user may need keys that are used for grid navigation to operate elements inside a cell if a cell contains:
 * Editable content.
 * Multiple widgets.
 * A widget that utilizes arrow keys in its interaction model, such as a radio group or slider.

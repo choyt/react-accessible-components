@@ -33,7 +33,7 @@ const ListBox = ({handleToggle, toggledIndices, data, classes}) => {
             [classes.Toggled]: toggledIndices.indexOf(idx) !== -1,
             [classes.Title]: true,
           })}>
-          {item.text}
+          {item}
         </button>
       ))}
     </div>
