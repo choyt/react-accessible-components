@@ -27,8 +27,8 @@ const ToggleButton = ({ activated, handleToggle, text, classes }) => (
   <div className={classes.ToggleButton}>
     <button
       className={classNames({
-        [classes.Button]: true,
         [classes.Activated]: activated,
+        [classes.Button]: true,
       })}
       onClick={handleToggle}
     >

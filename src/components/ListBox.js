@@ -29,8 +29,8 @@ const ListBox = ({ handleToggle, toggledIndices, data, classes }) => (
         key={idx}
         onClick={() => handleToggle(idx)}
         className={classNames({
-          [classes.Toggled]: toggledIndices.indexOf(idx) !== -1,
           [classes.Title]: true,
+          [classes.Toggled]: toggledIndices.indexOf(idx) !== -1,
         })}
       >
         {item}

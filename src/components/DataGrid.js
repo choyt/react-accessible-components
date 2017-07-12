@@ -3,15 +3,15 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 
 const styles = {
+  DataCell: {
+    '&$Highlighted': {
+      backgroundColor: 'gray',
+    },
+  },
   DataGrid: {
     textAlign: 'center',
     '& tr > *': {
       border: '1px solid black',
-    },
-  },
-  DataCell: {
-    '&$Highlighted': {
-      backgroundColor: 'gray',
     },
   },
   Highlighted: {},
@@ -27,9 +27,9 @@ const DataGrid = ({
   classes }) => (
     <div
       className={classes.DataGrid}
-      onKeyDown={handleKeyDown}
       onBlur={handleBlur}
       onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
       tabIndex={0}
     >
       <table>

@@ -45,14 +45,14 @@ class App extends React.Component {
       toggleActivated: false,
       toggledListBoxIndices: [],
     };
-    this.toggleAccordion = this.toggleAccordion.bind(this);
-    this.toggleButton = this.toggleButton.bind(this);
     this.handleComboBoxChange = this.handleComboBoxChange.bind(this);
     this.handleComboBoxClick = this.handleComboBoxClick.bind(this);
     this.handleComboBoxKeyDown = this.handleComboBoxKeyDown.bind(this);
-    this.handleDataGridKeyDown = this.handleDataGridKeyDown.bind(this);
     this.handleDataGridBlur = this.handleDataGridBlur.bind(this);
     this.handleDataGridFocus = this.handleDataGridFocus.bind(this);
+    this.handleDataGridKeyDown = this.handleDataGridKeyDown.bind(this);
+    this.toggleAccordion = this.toggleAccordion.bind(this);
+    this.toggleButton = this.toggleButton.bind(this);
     this.toggleListBox = this.toggleListBox.bind(this);
   }
 
@@ -212,19 +212,19 @@ class App extends React.Component {
         />
         <h3 className={classes.Heading}>ToggleButton</h3>
         <ToggleButton
-          handleToggle={this.toggleButton}
           activated={this.state.toggleActivated}
+          handleToggle={this.toggleButton}
           text='Toggle Button'
         />
         <h3 className={classes.Heading}>Accordion</h3>
         <Accordion
-          handleToggle={this.toggleAccordion}
           activated={this.state.accordionOpen}
           data={[
           { title: 'Home', text: 'Some text' },
           { title: 'Forum', text: 'Some more text' },
           { title: 'Chat', text: 'Even more text' },
           ]}
+          handleToggle={this.toggleAccordion}
         />
         <h3 className={classes.Heading}>ListBox</h3>
         <ListBox
@@ -246,20 +246,20 @@ class App extends React.Component {
         <h3 className={classes.Heading}>Tooltip</h3>
         <Tooltip>
           <button
-            onMouseOver={this.handleTooltipMouseOver}
             onMouseOut={this.handleTooltipMouseOut}
+            onMouseOver={this.handleTooltipMouseOver}
           >
             Hover me
           </button>
         </Tooltip>
         <h3 className={classes.Heading}>DataGrid</h3>
         <DataGrid
-          handleKeyDown={this.handleDataGridKeyDown}
-          handleFocus={this.handleDataGridFocus}
+          data={dataGridData}
           handleBlur={this.handleDataGridBlur}
+          handleFocus={this.handleDataGridFocus}
+          handleKeyDown={this.handleDataGridKeyDown}
           headers={dataGridHeaders}
           highlightedCell={this.state.highlightedCell}
-          data={dataGridData}
         />
       </div>
     );
