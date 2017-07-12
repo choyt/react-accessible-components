@@ -3,6 +3,7 @@ import injectSheet from 'react-jss';
 import Toolbar from './components/Toolbar';
 import Breadcrumb from './components/Breadcrumb';
 import ToggleButton from './components/ToggleButton';
+import Accordion from './components/Accordion';
 
 const styles = {
   App: {
@@ -10,19 +11,34 @@ const styles = {
   },
   Heading: {
     margin: '.5em',
-  }
+  },
 };
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activated: false};
-    this.toggle = this.toggle.bind(this);
+    this.state = {
+      activated: false,
+      accordionOpen: -1,
+    };
+    this.toggleButton = this.toggleButton.bind(this);
+    this.toggleAccordion = this.toggleAccordion.bind(this);
   }
-  toggle() {
+  toggleButton() {
     this.setState({
-      activated: !this.state.activated
+      activated: !this.state.activated,
     });
+  }
+  toggleAccordion(num) {
+    if (num === this.state.accordionOpen) {
+      this.setState({
+        accordionOpen: -1,
+      });
+    } else {
+      this.setState({
+        accordionOpen: num,
+      });
+    }
   }
   render() {
     const classes = this.props.classes;
@@ -42,10 +58,19 @@ class App extends React.Component {
         ]}/>
         <h3 className={classes.Heading}>ToggleButton</h3>
         <ToggleButton 
-          handleToggle={this.toggle}
+          handleToggle={this.toggleButton}
           activated={this.state.activated}
           text='Toggle Button'
         />
+        <h3 className={classes.Heading}>Accordion</h3>
+        <Accordion 
+          handleToggle={this.toggleAccordion}
+          activated={this.state.accordionOpen}
+          data={[
+          {title: 'Home', text: 'Some text'},
+          {title: 'Forum', text: 'Some more text'},
+          {title: 'Chat', text: 'Even more text'},
+        ]}/>
       </div>
     );
   }

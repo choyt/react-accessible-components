@@ -5,7 +5,6 @@ const styles = {
   Button: {
     backgroundColor: 'white',
     border: '1px solid black',
-    borderRadius: '.2em',
     cursor: 'pointer',
     padding: '.5em',
     '&:active': {
@@ -19,7 +18,7 @@ const styles = {
   },
 };
 
-const Toolbar = ({data, classes, children}) => {
+const Toolbar = ({data, classes}) => {
   return (
     <div className={classes.Toolbar}>
       {data.map((item, idx) => (

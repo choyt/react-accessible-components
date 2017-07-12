@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-const Breadcrumb = ({data, classes, children}) => {
+const Breadcrumb = ({data, classes}) => {
   const crumbJoin = (arr, sep) => {
     var lastIdx = arr.length - 1;
     return arr.reduce((res, val, idx) => {
@@ -22,8 +22,9 @@ const Breadcrumb = ({data, classes, children}) => {
         </a>
       );
       res.push(crumbLink);
-      if (lastIdx !== idx)
+      if (lastIdx !== idx) {
         res.push(sep);
+      }
       return res;
     }, []);
   };
