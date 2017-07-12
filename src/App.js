@@ -4,6 +4,7 @@ import update from 'immutability-helper';
 import Accordion from './components/Accordion';
 import Alert from './components/Alert';
 import Breadcrumb from './components/Breadcrumb';
+import DataGrid from './components/DataGrid';
 import ListBox from './components/ListBox';
 import ComboBox from './components/ComboBox';
 import ToggleButton from './components/ToggleButton';
@@ -20,6 +21,17 @@ const styles = {
 };
 
 const comboBoxOptions = ['a', 'Home', 'Forum', 'Chat', 'Chart', 'Bar Chart'];
+const dataGridHeaders = [
+  { title: 'Home', key: 'home' },
+  { title: 'Forum', key: 'forum' },
+  { title: 'Chat', key: 'chat' },
+];
+const dataGridData = [
+  { home: 'fooHome', forum: 'fooForum', chat: 'fooChat' },
+  { home: 'barHome', forum: 'barForum', chat: 'barChat' },
+  { home: 'bazHome', forum: 'bazForum', chat: 'bazChat' },
+  { home: 'quuxHome', forum: 'quuxForum', chat: 'quuxChat' },
+]
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +41,7 @@ class App extends React.Component {
       comboBoxHighlighted: -1,
       comboBoxInputValue: '',
       comboBoxOptions: comboBoxOptions,
+      highlightedCell: { idx: -1, hidx: -1 },
       toggleActivated: false,
       toggledListBoxIndices: [],
     };
@@ -37,6 +50,9 @@ class App extends React.Component {
     this.handleComboBoxChange = this.handleComboBoxChange.bind(this);
     this.handleComboBoxClick = this.handleComboBoxClick.bind(this);
     this.handleComboBoxKeyDown = this.handleComboBoxKeyDown.bind(this);
+    this.handleDataGridKeyDown = this.handleDataGridKeyDown.bind(this);
+    this.handleDataGridBlur = this.handleDataGridBlur.bind(this);
+    this.handleDataGridFocus = this.handleDataGridFocus.bind(this);
     this.toggleListBox = this.toggleListBox.bind(this);
   }
 
@@ -91,13 +107,61 @@ class App extends React.Component {
     }
   }
 
-  handleTooltipMouseOver(e) {
-    console.log(e);
+  handleDataGridKeyDown(e) {
+    e.preventDefault();
+    let newCoords = this.state.highlightedCell;
+    let newIdx = -1;
+    switch (e.key) {
+      case 'ArrowDown':
+        newIdx = Math.min(this.state.highlightedCell.idx + 1,
+          dataGridData.length - 1);
+        newCoords = update(this.state.highlightedCell, {
+          idx: { $set: newIdx },
+        });
+        break;
+      case 'ArrowUp':
+        newIdx = Math.max(this.state.highlightedCell.idx - 1,
+          0);
+        newCoords = update(this.state.highlightedCell, {
+          idx: { $set: newIdx },
+        });
+        break;
+      case 'ArrowLeft':
+        newIdx = Math.max(this.state.highlightedCell.hidx - 1,
+          0);
+        newCoords = update(this.state.highlightedCell, {
+          hidx: { $set: newIdx },
+        });
+        break;
+      case 'ArrowRight':
+        newIdx = Math.min(this.state.highlightedCell.hidx + 1,
+          dataGridHeaders.length - 1);
+        newCoords = update(this.state.highlightedCell, {
+          hidx: { $set: newIdx },
+        });
+        break;
+      default:
+    }
+    this.setState({
+      highlightedCell: newCoords,
+    });
   }
 
-  handleTooltipMouseOut(e) {
-    console.log(e);
+  handleDataGridBlur(e) {
+    this.setState({
+      highlightedCell: { idx: -1, hidx: -1 },
+    });
   }
+
+  handleDataGridFocus(e) {
+    this.setState({
+      highlightedCell: { idx: 0, hidx: 0 },
+    });
+  }
+
+  handleTooltipMouseOver(e) {}
+
+  handleTooltipMouseOut(e) {}
 
   toggleAccordion(num) {
     if (num === this.state.accordionOpen) {
@@ -183,10 +247,20 @@ class App extends React.Component {
         <Tooltip>
           <button
             onMouseOver={this.handleTooltipMouseOver}
-            onMouseOut={this.handleTooltipMouseOut}>
+            onMouseOut={this.handleTooltipMouseOut}
+          >
             Hover me
           </button>
         </Tooltip>
+        <h3 className={classes.Heading}>DataGrid</h3>
+        <DataGrid
+          handleKeyDown={this.handleDataGridKeyDown}
+          handleFocus={this.handleDataGridFocus}
+          handleBlur={this.handleDataGridBlur}
+          headers={dataGridHeaders}
+          highlightedCell={this.state.highlightedCell}
+          data={dataGridData}
+        />
       </div>
     );
   }
