@@ -751,13 +751,13 @@ aria-setsize
 aria-sort
 
 # Custom Control Design Considerations
-Can you get to the control via the keyboard? Refer to Providing Keyboard Focus
-Can you use the control with the keyboard? Refer to Keyboard Navigation
-Can you use the control with touch gestures? With assistive technology enabled?
-Can you operate the control using the standard keys (Refer to ARIA Widget Design Patterns) and/or touch gestures for the control type?
-Can you easily see it when the control has focus? Refer to Visible Focus (WCAG2)
-The control has a text label that is exposed as an accessible name in accessibility APIs
-The control has an appropriate role exposed in accessibility APIs
-The control has any UI states and properties that it has exposed in accessibility APIs
-The control label/description/icon is perceivable/usable for low vision users (Use a color contrast checker.)
-The control is perceivable/usable when High Contrast Mode is enabled (e.g. Windows HC mode)
+- Can you get to the control via the keyboard? Refer to Providing Keyboard Focus
+- Can you use the control with the keyboard? Refer to Keyboard Navigation
+- Can you use the control with touch gestures? With assistive technology enabled?
+- Can you operate the control using the standard keys (Refer to ARIA Widget Design Patterns) and/or touch gestures for the control type?
+- Can you easily see it when the control has focus? Refer to Visible Focus (WCAG2)
+- The control has a text label that is exposed as an accessible name in accessibility APIs
+- The control has an appropriate role exposed in accessibility APIs
+- The control has any UI states and properties that it has exposed in accessibility APIs
+- The control label/description/icon is perceivable/usable for low vision users (Use a color contrast checker.)
+- The control is perceivable/usable when High Contrast Mode is enabled (e.g. Windows HC mode)
