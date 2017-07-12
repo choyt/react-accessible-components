@@ -34,17 +34,21 @@ const ComboBox = ({
   classes }) => (
     <div className={classes.ComboBox}>
       <input
+        aria-label='input'
         type='text'
         value={inputValue}
         className={classes.Input}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      <div>
+      <div role='listbox'>
         {options.map((item, idx) => (
           <div
             key={idx}
             onClick={() => handleClick(idx)}
+            role='option'
+            aria-selected={idx === highlightedIdx}
+            tabIndex={-1}
             className={classNames({
               [classes.Highlighted]: idx === highlightedIdx,
               [classes.Title]: true,

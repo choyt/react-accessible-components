@@ -3,13 +3,16 @@ import injectSheet from 'react-jss';
 
 const styles = {
   Alert: {
+    backgroundColor: 'lightgray',
+    border: '1px solid black',
+    padding: '.5em',
     textAlign: 'center',
   },
 };
 
-const Alert = ({ classes }) => (
+const Alert = ({ text, classes }) => (
   <div className={classes.Alert}>
-    <p>Alert</p>
+    {text}
   </div>
   );
 

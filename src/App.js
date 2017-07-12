@@ -2,11 +2,13 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import update from 'immutability-helper';
 import Accordion from './components/Accordion';
+import Alert from './components/Alert';
 import Breadcrumb from './components/Breadcrumb';
 import ListBox from './components/ListBox';
 import ComboBox from './components/ComboBox';
 import ToggleButton from './components/ToggleButton';
 import Toolbar from './components/Toolbar';
+import Tooltip from './components/Tooltip';
 
 const styles = {
   App: {
@@ -89,6 +91,14 @@ class App extends React.Component {
     }
   }
 
+  handleTooltipMouseOver(e) {
+    console.log(e);
+  }
+
+  handleTooltipMouseOut(e) {
+    console.log(e);
+  }
+
   toggleAccordion(num) {
     if (num === this.state.accordionOpen) {
       this.setState({
@@ -167,6 +177,16 @@ class App extends React.Component {
           inputValue={this.state.comboBoxInputValue}
           options={this.state.comboBoxOptions}
         />
+        <h3 className={classes.Heading}>Alert</h3>
+        <Alert text='This is the text of the Alert' />
+        <h3 className={classes.Heading}>Tooltip</h3>
+        <Tooltip>
+          <button
+            onMouseOver={this.handleTooltipMouseOver}
+            onMouseOut={this.handleTooltipMouseOut}>
+            Hover me
+          </button>
+        </Tooltip>
       </div>
     );
   }

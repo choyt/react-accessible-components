@@ -7,9 +7,9 @@ const styles = {
   },
 };
 
-const Tooltip = ({ classes }) => (
+const Tooltip = ({ classes, children }) => (
   <div className={classes.Tooltip}>
-    <p>Tooltip</p>
+    {children}
   </div>
   );
 
