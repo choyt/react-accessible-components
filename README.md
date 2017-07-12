@@ -1,7 +1,7 @@
-npm install
-npm start
-visit localhost:3000
-that's it
+1. npm install
+2. npm start
+3. visit localhost:3000
+4. that's it
 
 This project was created to provide a set of components which conform to the latest recommendations made by the WAI-ARIA accessibility group. The recommendations followed are these:
 
@@ -13,10 +13,12 @@ Because alerts are intended to provide important and potentially time-sensitive 
 It is also important to avoid designing alerts that disappear automatically. An alert that disappears too quickly can lead to failure to meet WCAG 2.0 success criterion 2.2.3. Another critical design consideration is the frequency of interruption caused by alerts. Frequent interruptions inhibit usability for people with visual and cognitive disabilities, which makes meeting the requirements of WCAG 2.0 success criterion 2.2.4 more difficult.
 
 ## Keyboard Interaction
-An alert (WAI-ARIA live region) does not require any keyboard interaction.##
-WAI-ARIA Roles, States, and Properties: The widget has a role of alert.
+An alert (WAI-ARIA live region) does not require any keyboard interaction.
 
-# Toggle button
+## WAI-ARIA Roles, States, And Properties
+The widget has a role of alert.
+
+# Toggle Button
 A two-state button that can be either off (not pressed) or on (pressed). To tell assistive technologies that a button is a toggle button, specify a value for the attribute aria-pressed. For example, a button labeled mute in an audio player could indicate that sound is muted by setting the pressed state true. Important: it is critical the label on a toggle does not change when its state changes. In this example, when the pressed state is true, the label remains "Mute" so a screen reader would say something like "Mute toggle button pressed". Alternatively, if the design were to call for the button label to change from "Mute" to "Unmute," the aria-pressed attribute would not be needed.
 
 # Breadcrumb
@@ -25,12 +27,12 @@ A breadcrumb trail consists of a list of links to the parent pages of the curren
 ## Keyboard Interaction
 Not applicable.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * Breadcrumb trail is contained within a navigation landmark region.
 * The landmark region is labelled via aria-label or aria-labelledby.
 * The link to the current page has aria-current set to page. If the element representing the current page is not a link, aria-current is optional.
 
-# Checkbox (Tri-state)
+# Checkbox (Tri-State)
 This type of checkbox supports an additional third state known as partially checked.
 One common use of a tri-state checkbox can be found in software installers where a single tri-state checkbox is used to represent and control the state of an entire group of install options. And, each option in the group can be individually turned on or off with a dual state checkbox.
 * If all options in the group are checked, the overall state is represented by the tri-state checkbox displaying as checked.
@@ -46,7 +48,7 @@ And, In some implementations, the system may remember which options were checked
 ## Keyboard Interaction
 When the checkbox has focus, pressing the Space key changes the state of the checkbox.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The checkbox has role checkbox.
 * The checkbox has an accessible label, preferably provided by a visible label associated using aria-labelledby.
 * When checked, the checkbox element has state aria-checked set to true.
@@ -67,7 +69,7 @@ A combo box enables the user to type in a field and at the same time chose a pre
 * Enter selects the current item on the list, updates the edit field, highlights the selected item in the dropdown list, closes the dropdown list, and returns focus to the input field.
 * Typing a letter (printable character) key moves focus to the next instance of a visible node whose title begins with that printable letter.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 A combobox can be implemented using either of two design patterns:
 
 * As a combination of text field, which may be editable, a displayable list of items, and a drop button to toggle the display of that list; all wrapped in the form of a single widget with role of combobox.
@@ -128,7 +130,7 @@ A text box and an associated drop-down list of choices where the choices offered
 ### NOTE
 It is good practice to limit the number of matching items in the drop down to a reasonable number. The reasonable number is determined by the task at hand. A list of the 50 US States is probably reasonable, but a list containing all of the office numbers in a building is probably not appropriate.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 The widget has a role of combobox.
 The combobox has an aria-autocomplete property set to one of 'inline', 'list', or 'both'.
 For more information, see the combobox design pattern.
@@ -158,7 +160,7 @@ The alertdialog role is a special-case dialog role designed specifically for dia
   * If a dialog is limited to interactions that either provide additional information or continue processing, it might set focus to the element deemed to be most frequently desired, such as a OK or Continue button.
 * When a dialog closes, focus typically returns to the element that had focus before the dialog was invoked. This is often the control that opened the dialog. In circumstances where that element no longer exists, focus is set on an element that supports a logical work flow.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The element that serves as the dialog container has a role of dialog.
 * The dialog container element has aria-modal set to true.
 * The dialog has either:
@@ -172,9 +174,9 @@ An accordion is a vertically stacked set of elements, such as labels or thumbnai
 
 Terms for understanding accordions include:
 
-### Accordion Header:
+### Accordion Header
 Label for or thumbnail representing a section of content that also serves as a control for showing, and in some implementations, hiding the section of content.
-### Accordion Panel:
+### Accordion Panel
 Section of content associated with an accordion header.
 
 In some accordions, there are additional elements that are always visible adjacent to the accordion header. For instance, a menubutton may accompany each accordion header to provide access to actions that apply to that section. And, in some cases, a snippet of the hidden content may also be visually persistent.
@@ -190,7 +192,7 @@ In some accordions, there are additional elements that are always visible adjace
 * Control + Page Down (Optional): If focus is inside an accordion panel or on an accordion header, moves focus to the next accordion header. If focus is in the last accordion header or panel, either does nothing or moves focus to the first accordion header.
 * Control + Page Up (Optional): If focus is inside an accordion panel, moves focus to the header for that panel. If focus is on an accordion header, moves focus to the previous accordion header. If focus is on the first accordion header, either does nothing or moves focus to the last accordion header.
 
-## WAI-ARIA Roles, States, and Properties:
+## WAI-ARIA Roles, States, And Properties
 * The title of each accordion header is contained in an element with role button.
 * Each accordion header button is wrapped in an element with role heading that has a value set for aria-level that is appropriate for the information architecture of the page.
   * If the native host language has an element with an implicit heading and aria-level, such as an HTML heading tag, a native host language element may be used.
@@ -212,7 +214,7 @@ A non-modal dialog is one which is displayed and focusable at the same time as t
 * Enter submits any data gathered in the dialog.
 * F6 is the recommended key to move focus between the application and an open non-model dialog.
 
-### Notes:
+### Notes
 * The mouse user may click on either the application or the dialog to change focus between the two.
 * In a Web application the non-modal dialog is usually always displayed above the application page, rather than in a separate browser window but that is not a requirement.
 * Authors should take care when using Enter to trigger default actions since Enter might be connected to and trigger some other user interface element, or it might trigger the focused element. Authors should ensure that Enter activates only the widget they intend.
@@ -257,7 +259,7 @@ When focus is inside the feed:
   * To continue reading the outer feed, Control + End moves focus to the next article in the outer feed.
 * In the rare circumstance that a feed article contains a widget that uses the above suggested keys, the feed navigation key will operate the contained widget, and the user needs to move focus to an element that does not utilize the feed navigation keys in order to navigate the feed.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The element that contains the set of feed articles has role feed.
 * If the feed has a visible title, the feed element has aria-labelledby referring to the element containing the title. Otherwise, the feed element has a label specified with aria-label.
 * Each unit of content in a feed is contained in an element with role article. All content inside the feed is contained in an article element.
@@ -267,7 +269,7 @@ When focus is inside the feed:
 * Each article element has aria-setsize set to a value that represents either the total number of articles that have been loaded or the total number in the feed, depending on which value is deemed more helpful to users. If the total number in the feed is undetermined, it can be represented by a aria-setsize value of -1.
 * When article elements are being added to or removed from the feed container, and if the operation requires multiple DOM operations, the feed element has aria-busy set to true during the update operation. Note that it is extremely important that aria-busy is set to false when the operation is complete or the changes may not become visible to some assistive technology users.
 
-# Grids: Interactive Tabular Data and Layout Containers§
+# Grids: Interactive Tabular Data and Layout Containers
 A grid widget is a container that enables users to navigate the information or interactive elements it contains using directional navigation keys, such as arrow keys, Home , and End. As a generic container widget that offers flexible keyboard navigation, it can serve a wide variety of needs. It can be used for purposes as simple as grouping a collection of checkboxes or navigation links or as complex as creating a full-featured spreadsheet application. While ARIA properties and assistive technologies use row and column nomenclature when describing and presenting the logical structure of elements with the grid role, using the grid role on an element does not necessarily imply that its visual presentation is tabular.
 
 When presenting content that is tabular, consider the following factors when choosing between implementing this grid patern or the table pattern.
@@ -351,13 +353,13 @@ It would be unusual for a layout grid to provide functions that require cell sel
 * Shift + Down Arrow: Extends selection one cell down.
 * Shift + Up Arrow: Extends selection one cell Up.
 
-## Keyboard Interaction - Setting Focus and Navigating Inside Cells§
+## Keyboard Interaction - Setting Focus And Navigating Inside Cells
 This section describes two important aspects of keyboard interaction design shared by both data and layout grid patterns:
 
 * Choosing whether a cell or an element inside a cell receives focus in response to grid navigation key events.
 * Enabling grid navigation keys to be used to interact with elements inside of a cell.
 
-### Whether to Focus on a Cell Or an Element Inside IT
+### Whether To Focus On A Cell Or An Element Inside It
 For assistive technology users, the quality of experience when navigating a grid heavily depends on both what a cell contains and on where keyboard focus is set. For example, if a cell contains a button and a grid navigation key places focus on the cell instead of the button, screen readers announce the button label but do not tell users a button is present.
 
 There are two optimal cell design and focus behavior combinations:
@@ -366,7 +368,7 @@ There are two optimal cell design and focus behavior combinations:
 
 While any combination of widgets, text, and graphics may be included in a single cell, grids that do not follow one of these two cell design and focus movement patterns add complexity for authors or users or both. The reference implementations included in the example section below demonstrate some strategies for making other cell designs as accessible as possible, but the most widely accessible experiences are likely to come by applying the above two patterns.
 
-### Editing and Navigating Inside a Cell§
+### Editing And Navigating Inside A Cell
 While navigation keys, such as arrow keys, are moving focus from cell to cell, they are not available to perform actions like operate a combobox or move an editing caret inside of a cell. The user may need keys that are used for grid navigation to operate elements inside a cell if a cell contains:
 * Editable content.
 * Multiple widgets.
@@ -389,7 +391,7 @@ When grid navigation is disabled, conventional changes to navigation behaviors i
 * Tab: moves focus to the next widget in the grid. Optionally, the focus movement may wrap inside a single cell or within the grid itself.
 * Shift + Tab: moves focus to the previous widget in the grid. Optionally, the focus movement may wrap inside a single cell or within the grid itself.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The grid container has role grid.
 * Each row container has role row and is either a DOM descendant of or owned by the grid element or an element with role rowgroup.
 * Each cell is either a DOM descendant of or owned by a row element and has one of the following roles:
@@ -463,7 +465,7 @@ For a vertically oriented listbox:
   * Down Arrow performs as Right Arrow is described above, and vice versa.
   * Up Arrow performs as Left Arrow is described above, and vice versa.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * An element that contains or owns all the listbox options has role listbox.
 * Each option in the listbox has role option and is a DOM descendant of the element with role listbox or is referenced by an aria-owns property on the listbox element.
 * If the listbox is not part of another widget, then it has a visible label referenced by aria-labelledby on the element with role listbox.
@@ -475,7 +477,7 @@ For a vertically oriented listbox:
 * If the complete set of available options is not present in the DOM due to dynamic loading as the user scrolls, their aria-setsize and aria-posinset attributes are set appropriately.
 * If options are arranged horizontally, the element with role listbox has aria-orientation set to horizontal. The default value of aria-orientation for listbox is vertical.
 
-# Menu or Menu bar
+# Menu Or Menu Bar
 A menu is a widget that offers a list of choices to the user, such as a set of actions or functions. A menu is usually opened, or made visible, by activating a menu button, choosing an item in a menu that opens a sub menu, or by invoking a command, such as Shift + F10 in Windows, that opens a context specific menu. When a user activates a choice in a menu, the menu usually closes unless the choice opened a submenu.
 
 A menu that is visually persistent is a menubar. A menubar is typically horizontal and is often used to create a menu bar similar to those found near the top of the window in many desktop applications, offering the user quick access to a consistent set of commands.
@@ -538,7 +540,7 @@ Any key that corresponds to a printable character (Optional): Move focus to the 
   * Down Arrow performs as Right Arrow is described above, and vice versa.
   * Up Arrow performs as Left Arrow is described above, and vice versa.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * A menu is a container of items that represent choices. The element serving as the menu has a role of either menu or menubar.
 * The items contained in a menu are child elements of the containing menu or menubar and have any of the following roles:
   * menuitem
@@ -566,7 +568,7 @@ A menu button is a button that opens a menu. It is often styled as a typical pus
   * (Optional) Down Arrow: opens the menu and moves focus to the first menu item.
 * The keyboard behaviors needed after the menu is open are described in 2.16 Menu or Menu bar.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The element that opens the menu has role button.
 * The element with role button has aria-haspopup set to true.
 * The roles, states, and properties needed for the menu opened by the button are described in 2.16 Menu or Menu bar.
@@ -580,7 +582,7 @@ A multi-thumb slider is a slider with two or more thumbs that each set a value i
 * Each thumb is in the page tab sequence and has the same keyboard interaction as a single-thumb slider.
 * The tab order remains constant regardless of thumb value and visual position within the slider. For example, if the value of a thumb changes such that it moves past one of the other thumbs, the tab order does not change.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * Each element serving as a focusable slider thumb has role slider.
 * Each slider element has the aria-valuenow property set to a decimal value representing the current value of the slider.
 * Each slider element has the aria-valuemin property set to a decimal value representing the minimum allowed value of the slider.
@@ -626,7 +628,7 @@ If the tabs in a tab list are arranged vertically:
 * Up Arrow performs as Left Arrow is described above.
 If the tab list is horizontal, it does not listen for Down Arrow or Up Arrow so those keys can provide their normal browser scrolling functions even when focus is inside the tab list.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The element that serves as the container for the set of tabs has role tablist.
 * Each element that serves as a tab has role tab and is contained within the element with role tablist.
 * Each element that contains the content panel for a tab has role tabpanel.
@@ -662,7 +664,7 @@ For a horizontal toolbar (the default):
 * Typically, disabled elements are not focusable when navigating with a keyboard. However, in circumstances where discoverability of a function is crucial, it may be helpful if disabled controls are focusable so screen reader users are more likely to be aware of their presence. For additional guidance, see 4.7 Focusability of disabled controls.
 * In applications where quick access to a toolbar is important, such as accessing an editor's toolbar from its text area, a documented shortcut key for moving focus from the relevant context to its corresponding toolbar is recommended.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The element that serves as the toolbar container has role toolbar.
 * If the toolbar has a visible label, it is referenced by aria-labelledby on the toolbar element. Otherwise, the toolbar element has a label provided by aria-label.
 * If the controls are arranged vertically, the toolbar element has aria-orientation set to vertical. The default orientation is horizontal.
@@ -681,15 +683,16 @@ Escape: Dismisses the Tooltip.
 * Focus stays on the triggering element while the tooltip is displayed.
 * If the tooltip is invoked when the trigger element receives focus, then it is dismissed when it no longer has focus (onBlur). If the tooltip is invoked with mouseIn, then it is dismissed with on mouseOut.
 
-## WAI-ARIA Roles, States, and Properties
+## WAI-ARIA Roles, States, And Properties
 * The element that serves as the tooltip container has role tooltip.
 * The element that triggers the tooltip references the tooltip element with aria-describedby.
 
-# Aria roles and properties not available in HTML5
+# Aria Roles And Properties Not Available In HTML5
 Below are listed the ARIA roles and properties. not considered to be available natively in HTML5. It is clear that many roles and properties provided by ARIA which can be used to convey information to users are not available in HTML5.
 
 ## ARIA Roles
-### Covered Above:
+
+### Covered Above
 alert
 alertdialog
 application

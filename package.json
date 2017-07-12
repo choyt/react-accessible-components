@@ -2,6 +2,8 @@
   "name": "react-accessible-components",
   "version": "0.1.0",
   "dependencies": {
+    "classnames": "^2.2.5",
+    "eslint": "^4.2.0",
     "react": "^15.4.2",
     "react-a11y": "^0.3.3",
     "react-dom": "^15.4.2",
