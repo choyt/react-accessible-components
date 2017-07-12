@@ -22,7 +22,7 @@ const styles = {
     cursor: 'pointer',
     padding: '.5em',
     '&:hover': {
-      background: '#ccc',
+      backgroundColor: 'lightgray',
     },
   },
 };
@@ -32,11 +32,11 @@ const Accordion = ({activated, handleToggle, data, classes}) => {
     <div className={classes.Accordion}>
       {data.map((item, idx) => (
         <div key={idx} className={classes.Panel}>
-          <div 
+          <button
             className={classes.Title}
             onClick={() => handleToggle(idx)}>
             {item.title}
-          </div>
+          </button>
           <div 
             className={classNames({
               [classes.Content]: true,

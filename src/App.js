@@ -1,9 +1,11 @@
 import React from 'react';
 import injectSheet from 'react-jss';
-import Toolbar from './components/Toolbar';
-import Breadcrumb from './components/Breadcrumb';
-import ToggleButton from './components/ToggleButton';
+import update from 'immutability-helper';
 import Accordion from './components/Accordion';
+import Breadcrumb from './components/Breadcrumb';
+import ListBox from './components/ListBox';
+import ToggleButton from './components/ToggleButton';
+import Toolbar from './components/Toolbar';
 
 const styles = {
   App: {
@@ -18,16 +20,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activated: false,
       accordionOpen: -1,
+      toggleActivated: false,
+      toggledListBoxIndices: [],
     };
-    this.toggleButton = this.toggleButton.bind(this);
     this.toggleAccordion = this.toggleAccordion.bind(this);
-  }
-  toggleButton() {
-    this.setState({
-      activated: !this.state.activated,
-    });
+    this.toggleButton = this.toggleButton.bind(this);
+    this.toggleListBox = this.toggleListBox.bind(this);
   }
   toggleAccordion(num) {
     if (num === this.state.accordionOpen) {
@@ -38,6 +37,25 @@ class App extends React.Component {
       this.setState({
         accordionOpen: num,
       });
+    }
+  }
+  toggleButton() {
+    this.setState({
+      toggleActivated: !this.state.toggleActivated,
+    });
+  }
+  toggleListBox(idx) {
+    const containingIdx = this.state.toggledListBoxIndices.indexOf(idx);
+    if (containingIdx === -1) {
+      this.setState({
+        toggledListBoxIndices: update(this.state.toggledListBoxIndices,
+          {$push: [idx]}),
+        });
+    } else {
+      this.setState({
+        toggledListBoxIndices: update(this.state.toggledListBoxIndices,
+          {$splice: [[containingIdx, 1]]}),
+        });
     }
   }
   render() {
@@ -59,7 +77,7 @@ class App extends React.Component {
         <h3 className={classes.Heading}>ToggleButton</h3>
         <ToggleButton 
           handleToggle={this.toggleButton}
-          activated={this.state.activated}
+          activated={this.state.toggleActivated}
           text='Toggle Button'
         />
         <h3 className={classes.Heading}>Accordion</h3>
@@ -70,6 +88,15 @@ class App extends React.Component {
           {title: 'Home', text: 'Some text'},
           {title: 'Forum', text: 'Some more text'},
           {title: 'Chat', text: 'Even more text'},
+        ]}/>
+        <h3 className={classes.Heading}>ListBox</h3>
+        <ListBox 
+          handleToggle={this.toggleListBox}
+          toggledIndices={this.state.toggledListBoxIndices}
+          data={[
+          {text: 'Home'},
+          {text: 'Forum'},
+          {text: 'Chat'},
         ]}/>
       </div>
     );

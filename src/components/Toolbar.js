@@ -8,7 +8,7 @@ const styles = {
     cursor: 'pointer',
     padding: '.5em',
     '&:active': {
-      background: '#ccc',
+      backgroundColor: 'gray',
     },
   },
   Toolbar: {

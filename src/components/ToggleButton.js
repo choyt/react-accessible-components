@@ -3,16 +3,17 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 
 const styles = {
-  Activated: {
-    backgroundColor: 'gray',
-  },
+  Activated: {},
   Button: {
     backgroundColor: 'white',
     border: '1px solid black',
     cursor: 'pointer',
     padding: '.5em',
-    '&:active': {
-      background: '#ccc',
+    '&:hover': {
+      backgroundColor: 'lightgray',
+    },
+    '&$Activated': {
+      backgroundColor: 'gray',
     },
   },
   ToggleButton: {
