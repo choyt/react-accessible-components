@@ -4,6 +4,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "eslint": "^4.2.0",
+    "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-a11y": "^0.3.3",
     "react-dom": "^15.4.2",
@@ -12,15 +13,12 @@
   "devDependencies": {
     "enzyme": "^2.8.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-scripts": "0.9.5",
-    "@kadira/storybook": "^2.21.0"
+    "react-scripts": "0.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "eject": "react-scripts eject"
   }
 }
