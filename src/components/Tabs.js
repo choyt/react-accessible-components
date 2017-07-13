@@ -2,14 +2,24 @@ import React from 'react';
 import injectSheet from 'react-jss';
 
 const styles = {
+  Tab: {
+    display: 'inline-block',
+  },
+  TabList: {},
   Tabs: {
     textAlign: 'center',
   },
 };
 
-const Tabs = ({ classes }) => (
+const Tabs = ({ data, classes }) => (
   <div className={classes.Tabs}>
-    <p>Tabs</p>
+    <div className={classes.TabList}>
+      {data.map((val, idx) => (
+        <div className={classes.Tab}>
+          {val.title}
+        </div>
+      ))}
+    </div>
   </div>
   );
 
