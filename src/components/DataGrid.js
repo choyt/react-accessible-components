@@ -9,7 +9,7 @@ const styles = {
     },
   },
   DataGrid: {
-    textAlign: 'center',
+    textAlign: '-webkit-center',
     '& tr > *': {
       border: '1px solid black',
     },
