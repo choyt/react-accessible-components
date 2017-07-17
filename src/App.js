@@ -7,6 +7,7 @@ import Breadcrumb from './components/Breadcrumb';
 import DataGrid from './components/DataGrid';
 import ListBox from './components/ListBox';
 import ComboBox from './components/ComboBox';
+import Tabs from './components/Tabs';
 import ToggleButton from './components/ToggleButton';
 import Toolbar from './components/Toolbar';
 import Tooltip from './components/Tooltip';
@@ -44,6 +45,7 @@ class App extends React.Component {
       highlightedCell: { idx: -1, hidx: -1 },
       toggleActivated: false,
       toggledListBoxIndices: [],
+      toggledTabPanelIndex: 1,
     };
     this.handleComboBoxChange = this.handleComboBoxChange.bind(this);
     this.handleComboBoxClick = this.handleComboBoxClick.bind(this);
@@ -54,6 +56,7 @@ class App extends React.Component {
     this.toggleAccordion = this.toggleAccordion.bind(this);
     this.toggleButton = this.toggleButton.bind(this);
     this.toggleListBox = this.toggleListBox.bind(this);
+    this.toggleTabPanel = this.toggleTabPanel.bind(this);
   }
 
   handleComboBoxChange(e) {
@@ -196,10 +199,15 @@ class App extends React.Component {
     }
   }
 
+  toggleTabPanel(idx) {
+    this.setState({toggledTabPanelIndex: idx});
+  }
+
   render() {
     const classes = this.props.classes;
     return (
       <div className={classes.App}>
+
         <h3 className={classes.Heading}>Accordion</h3>
         <Accordion
           activated={this.state.accordionOpen}
@@ -210,8 +218,10 @@ class App extends React.Component {
           ]}
           handleToggle={this.toggleAccordion}
         />
+
         <h3 className={classes.Heading}>Alert</h3>
         <Alert text='This is the text of the Alert' />
+
         <h3 className={classes.Heading}>Breadcrumb</h3>
         <Breadcrumb
           data={[
@@ -220,6 +230,7 @@ class App extends React.Component {
           { text: 'Chat', link: '/#/chat' },
           ]}
         />
+
         <h3 className={classes.Heading}>ComboBox</h3>
         <ComboBox
           handleChange={this.handleComboBoxChange}
@@ -229,6 +240,7 @@ class App extends React.Component {
           inputValue={this.state.comboBoxInputValue}
           options={this.state.comboBoxOptions}
         />
+
         <h3 className={classes.Heading}>DataGrid</h3>
         <DataGrid
           data={dataGridData}
@@ -238,20 +250,35 @@ class App extends React.Component {
           headers={dataGridHeaders}
           highlightedCell={this.state.highlightedCell}
         />
+
         <h3 className={classes.Heading}>ListBox</h3>
         <ListBox
           handleToggle={this.toggleListBox}
           toggledIndices={this.state.toggledListBoxIndices}
           data={['Home', 'Forum', 'Chat']}
         />
+
+        <h3 className={classes.Heading}>Tabs</h3>
+        <Tabs
+          data={[
+          { title: 'Home', text: 'Some text' },
+          { title: 'Forum', text: 'Some more text' },
+          { title: 'Chat', text: 'Even more text' },
+          ]}
+          toggledIdx={this.state.toggledTabPanelIndex}
+          handleToggle={this.toggleTabPanel}
+        />
+
         <h3 className={classes.Heading}>ToggleButton</h3>
         <ToggleButton
           activated={this.state.toggleActivated}
           handleToggle={this.toggleButton}
           text='Toggle Button'
         />
+
         <h3 className={classes.Heading}>Toolbar</h3>
         <Toolbar data={['Home', 'Forum', 'Chat']} />
+
         <h3 className={classes.Heading}>Tooltip</h3>
         <Tooltip>
           <button
