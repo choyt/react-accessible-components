@@ -18,6 +18,7 @@ const styles = {
   TabPanel: {
     border: '1px solid black',
   },
+
   Tabs: {
     display: 'inline-block',
     textAlign: 'center',

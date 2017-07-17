@@ -269,6 +269,7 @@ class App extends React.Component {
           handleToggle={this.toggleTabPanel}
         />
 
+
         <h3 className={classes.Heading}>ToggleButton</h3>
         <ToggleButton
           activated={this.state.toggleActivated}
