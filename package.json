@@ -5,6 +5,7 @@
     "classnames": "^2.2.5",
     "enzyme": "^2.9.1",
     "eslint": "^4.2.0",
+    "focus-trap-react": "^3.0.3",
     "glamor": "^2.20.29",
     "immutability-helper": "^2.3.0",
     "no-scroll": "^2.1.0",
