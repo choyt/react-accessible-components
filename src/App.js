@@ -162,7 +162,7 @@ class App extends React.Component {
       highlightedCell: { idx: 0, hidx: 0 },
     });
   }
-  
+
   toggleAccordion(num) {
     if (num === this.state.accordionOpen) {
       this.setState({
@@ -197,18 +197,17 @@ class App extends React.Component {
   }
 
   toggleTabPanel(idx) {
-    this.setState({toggledTabPanelIdx: idx});
+    this.setState({ toggledTabPanelIdx: idx });
   }
 
   toggleMenuBar(idx) {
-    this.setState({toggleMenubarIdx: idx});
+    this.setState({ toggleMenubarIdx: idx });
   }
 
   render() {
     const classes = this.props.classes;
     return (
       <div className={classes.App}>
-
         <h3 className={classes.Heading}>Accordion</h3>
         <Accordion
           activated={this.state.accordionOpen}
@@ -290,7 +289,6 @@ class App extends React.Component {
 
         <h3 className={classes.Heading}>Toolbar</h3>
         <Toolbar data={['Home', 'Forum', 'Chat']} />
-
       </div>
     );
   }

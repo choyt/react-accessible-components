@@ -29,17 +29,18 @@ const styles = {
 const MenuBar = ({ data, handleToggle, toggledIdx, classes }) => (
   <div className={classes.MenuBar}>
     {data.map((val, idx) => (
-      <button 
-        className={classes.MenuButton} 
+      <button
+        className={classes.MenuButton}
         key={idx}
-        onClick={() => handleToggle(idx)}>
+        onClick={() => handleToggle(idx)}
+      >
         {val.title}
       </button>
     ))}
     {toggledIdx > -1 && toggledIdx < data.length
     ? <div className={classes.Menu}>
-        {data[toggledIdx].text}
-      </div>
+      {data[toggledIdx].text}
+    </div>
     : null}
   </div>
   );

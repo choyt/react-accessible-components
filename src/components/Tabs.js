@@ -32,7 +32,8 @@ const Tabs = ({ data, handleToggle, toggledIdx, classes }) => (
       <button
         className={classes.Tab}
         key={idx}
-        onClick={() => handleToggle(idx)}>
+        onClick={() => handleToggle(idx)}
+      >
         {val.title}
       </button>
     ))}
