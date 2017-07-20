@@ -4,13 +4,13 @@ import update from 'immutability-helper';
 import Accordion from './components/Accordion';
 import Alert from './components/Alert';
 import Breadcrumb from './components/Breadcrumb';
+import ComboBox from './components/ComboBox';
 import DataGrid from './components/DataGrid';
 import ListBox from './components/ListBox';
-import ComboBox from './components/ComboBox';
+import MenuBar from './components/MenuBar';
 import Tabs from './components/Tabs';
 import ToggleButton from './components/ToggleButton';
 import Toolbar from './components/Toolbar';
-import Tooltip from './components/Tooltip';
 
 const styles = {
   App: {
@@ -45,7 +45,7 @@ class App extends React.Component {
       highlightedCell: { idx: -1, hidx: -1 },
       toggleActivated: false,
       toggledListBoxIndices: [],
-      toggledTabPanelIndex: 1,
+      toggledTabPanelIdx: 1,
     };
     this.handleComboBoxChange = this.handleComboBoxChange.bind(this);
     this.handleComboBoxClick = this.handleComboBoxClick.bind(this);
@@ -56,6 +56,7 @@ class App extends React.Component {
     this.toggleAccordion = this.toggleAccordion.bind(this);
     this.toggleButton = this.toggleButton.bind(this);
     this.toggleListBox = this.toggleListBox.bind(this);
+    this.toggleMenuBar = this.toggleMenuBar.bind(this);
     this.toggleTabPanel = this.toggleTabPanel.bind(this);
   }
 
@@ -122,13 +123,6 @@ class App extends React.Component {
           idx: { $set: newIdx },
         });
         break;
-      case 'ArrowUp':
-        newIdx = Math.max(this.state.highlightedCell.idx - 1,
-          0);
-        newCoords = update(this.state.highlightedCell, {
-          idx: { $set: newIdx },
-        });
-        break;
       case 'ArrowLeft':
         newIdx = Math.max(this.state.highlightedCell.hidx - 1,
           0);
@@ -141,6 +135,13 @@ class App extends React.Component {
           dataGridHeaders.length - 1);
         newCoords = update(this.state.highlightedCell, {
           hidx: { $set: newIdx },
+        });
+        break;
+      case 'ArrowUp':
+        newIdx = Math.max(this.state.highlightedCell.idx - 1,
+          0);
+        newCoords = update(this.state.highlightedCell, {
+          idx: { $set: newIdx },
         });
         break;
       default:
@@ -161,11 +162,7 @@ class App extends React.Component {
       highlightedCell: { idx: 0, hidx: 0 },
     });
   }
-
-  handleTooltipMouseOver(e) {}
-
-  handleTooltipMouseOut(e) {}
-
+  
   toggleAccordion(num) {
     if (num === this.state.accordionOpen) {
       this.setState({
@@ -200,7 +197,11 @@ class App extends React.Component {
   }
 
   toggleTabPanel(idx) {
-    this.setState({toggledTabPanelIndex: idx});
+    this.setState({toggledTabPanelIdx: idx});
+  }
+
+  toggleMenuBar(idx) {
+    this.setState({toggleMenubarIdx: idx});
   }
 
   render() {
@@ -258,6 +259,17 @@ class App extends React.Component {
           data={['Home', 'Forum', 'Chat']}
         />
 
+        <h3 className={classes.Heading}>MenuBar</h3>
+        <MenuBar
+          data={[
+          { title: 'Home', text: 'Some text' },
+          { title: 'Forum', text: 'Some more text' },
+          { title: 'Chat', text: 'Even more text' },
+          ]}
+          toggledIdx={this.state.toggledMenuIdx}
+          handleToggle={this.toggleMenuBar}
+        />
+
         <h3 className={classes.Heading}>Tabs</h3>
         <Tabs
           data={[
@@ -265,10 +277,9 @@ class App extends React.Component {
           { title: 'Forum', text: 'Some more text' },
           { title: 'Chat', text: 'Even more text' },
           ]}
-          toggledIdx={this.state.toggledTabPanelIndex}
+          toggledIdx={this.state.toggledTabPanelIdx}
           handleToggle={this.toggleTabPanel}
         />
-
 
         <h3 className={classes.Heading}>ToggleButton</h3>
         <ToggleButton
@@ -280,15 +291,6 @@ class App extends React.Component {
         <h3 className={classes.Heading}>Toolbar</h3>
         <Toolbar data={['Home', 'Forum', 'Chat']} />
 
-        <h3 className={classes.Heading}>Tooltip</h3>
-        <Tooltip>
-          <button
-            onMouseOut={this.handleTooltipMouseOut}
-            onMouseOver={this.handleTooltipMouseOver}
-          >
-            Hover me
-          </button>
-        </Tooltip>
       </div>
     );
   }

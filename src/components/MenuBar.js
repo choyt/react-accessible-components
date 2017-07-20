@@ -2,7 +2,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 
 const styles = {
-  Tab: {
+  MenuButton: {
     backgroundColor: 'white',
     border: '1px solid black',
     cursor: 'pointer',
@@ -14,32 +14,34 @@ const styles = {
       backgroundColor: 'lightgray',
     },
   },
-  TabPanel: {
+  Menu: {
     border: '1px solid black',
     padding: '.5em',
   },
 
-  Tabs: {
+  MenuBar: {
     display: 'inline-block',
     textAlign: 'center',
     padding: '.5em',
   },
 };
 
-const Tabs = ({ data, handleToggle, toggledIdx, classes }) => (
-  <div className={classes.Tabs}>
+const MenuBar = ({ data, handleToggle, toggledIdx, classes }) => (
+  <div className={classes.MenuBar}>
     {data.map((val, idx) => (
-      <button
-        className={classes.Tab}
+      <button 
+        className={classes.MenuButton} 
         key={idx}
         onClick={() => handleToggle(idx)}>
         {val.title}
       </button>
     ))}
-    <div className={classes.TabPanel}>
-      {data[toggledIdx].text}
-    </div>
+    {toggledIdx > -1 && toggledIdx < data.length
+    ? <div className={classes.Menu}>
+        {data[toggledIdx].text}
+      </div>
+    : null}
   </div>
   );
 
-export default injectSheet(styles)(Tabs);
+export default injectSheet(styles)(MenuBar);
