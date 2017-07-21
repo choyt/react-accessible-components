@@ -2,6 +2,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import update from 'immutability-helper';
 import Accordion from './components/Accordion';
+import AutoComplete from './components/AutoComplete';
 import ComboBox from './components/ComboBox';
 import DataGrid from './components/DataGrid';
 import ListBox from './components/ListBox';
@@ -110,7 +111,7 @@ class App extends React.Component {
   }
 
   handleDataGridKeyDown(e) {
-    e.preventDefault();
+    e.preventDefault(); // TODO: Make this less aggressive.
     let newCoords = this.state.highlightedCell;
     let newIdx = -1;
     switch (e.key) {
@@ -219,6 +220,11 @@ class App extends React.Component {
             { title: 'Chat', text: 'Even more text' },
           ]}
           handleToggle={this.toggleAccordion}
+        />
+        
+        <h3 className={classes.Heading}>AutoComplete</h3>
+        <AutoComplete
+          options={['Home', 'Forum', 'Chat']}
         />
 
         <h3 className={classes.Heading}>ComboBox</h3>
