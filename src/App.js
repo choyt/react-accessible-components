@@ -221,11 +221,9 @@ class App extends React.Component {
           ]}
           handleToggle={this.toggleAccordion}
         />
-        
+
         <h3 className={classes.Heading}>AutoComplete</h3>
-        <AutoComplete
-          options={['Home', 'Forum', 'Chat']}
-        />
+        <AutoComplete options={['Home', 'Forum', 'Chat']} />
 
         <h3 className={classes.Heading}>ComboBox</h3>
         <ComboBox
