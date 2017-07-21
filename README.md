@@ -1,7 +1,12 @@
+# Installation
 1. npm install
 2. npm start
 3. visit localhost:3000
 4. that's it
+
+## Linting
+npm -g install prettier
+prettier --single-quote --trailing-comma es5 --write "{src,__{tests,mocks}__}/**/*.js"
 
 This project was created to provide a set of components which conform to the latest recommendations made by the WAI-ARIA accessibility group. The recommendations followed can be found here: http://w3c.github.io/aria/aria/aria.html
 

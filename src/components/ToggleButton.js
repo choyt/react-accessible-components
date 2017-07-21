@@ -23,7 +23,7 @@ const styles = {
   },
 };
 
-const ToggleButton = ({ activated, handleToggle, text, classes }) => (
+const ToggleButton = ({ activated, handleToggle, text, classes }) =>
   <div className={classes.ToggleButton}>
     <button
       className={classNames({
@@ -34,7 +34,6 @@ const ToggleButton = ({ activated, handleToggle, text, classes }) => (
     >
       {text}
     </button>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(ToggleButton);

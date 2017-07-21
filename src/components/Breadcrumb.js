@@ -34,6 +34,6 @@ const Breadcrumb = ({ data, classes }) => {
       {crumbs}
     </div>
   );
-}
+};
 
 export default injectSheet(styles)(Breadcrumb);

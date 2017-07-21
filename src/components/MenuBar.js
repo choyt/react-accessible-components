@@ -26,9 +26,9 @@ const styles = {
   },
 };
 
-const MenuBar = ({ data, handleToggle, toggledIdx, classes }) => (
+const MenuBar = ({ data, handleToggle, toggledIdx, classes }) =>
   <div className={classes.MenuBar}>
-    {data.map((val, idx) => (
+    {data.map((val, idx) =>
       <button
         className={classes.MenuButton}
         key={idx}
@@ -36,13 +36,12 @@ const MenuBar = ({ data, handleToggle, toggledIdx, classes }) => (
       >
         {val.title}
       </button>
-    ))}
+    )}
     {toggledIdx > -1 && toggledIdx < data.length
-    ? <div className={classes.Menu}>
-      {data[toggledIdx].text}
-    </div>
-    : null}
-  </div>
-  );
+      ? <div className={classes.Menu}>
+          {data[toggledIdx].text}
+        </div>
+      : null}
+  </div>;
 
 export default injectSheet(styles)(MenuBar);

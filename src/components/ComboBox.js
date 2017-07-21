@@ -31,34 +31,34 @@ const ComboBox = ({
   inputValue,
   options,
   textInput,
-  classes }) => (
-    <div className={classes.ComboBox}>
-      <input
-        aria-label='input'
-        className={classes.Input}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        type='text'
-        value={inputValue}
-      />
-      <div role='listbox'>
-        {options.map((item, idx) => (
-          <div
-            key={idx}
-            aria-selected={idx === highlightedIdx}
-            className={classNames({
-              [classes.Highlighted]: idx === highlightedIdx,
-              [classes.Title]: true,
-            })}
-            onClick={() => handleClick(idx)}
-            role='option'
-            tabIndex={-1}
-          >
-            {item}
-          </div>
-          ))}
-      </div>
+  classes,
+}) =>
+  <div className={classes.ComboBox}>
+    <input
+      aria-label="input"
+      className={classes.Input}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+      type="text"
+      value={inputValue}
+    />
+    <div role="listbox">
+      {options.map((item, idx) =>
+        <div
+          key={idx}
+          aria-selected={idx === highlightedIdx}
+          className={classNames({
+            [classes.Highlighted]: idx === highlightedIdx,
+            [classes.Title]: true,
+          })}
+          onClick={() => handleClick(idx)}
+          role="option"
+          tabIndex={-1}
+        >
+          {item}
+        </div>
+      )}
     </div>
-    );
+  </div>;
 
 export default injectSheet(styles)(ComboBox);

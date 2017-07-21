@@ -22,9 +22,9 @@ const styles = {
   Toggled: {},
 };
 
-const ListBox = ({ handleToggle, toggledIndices, data, classes }) => (
+const ListBox = ({ handleToggle, toggledIndices, data, classes }) =>
   <div className={classes.ListBox}>
-    {data.map((item, idx) => (
+    {data.map((item, idx) =>
       <button
         key={idx}
         onClick={() => handleToggle(idx)}
@@ -35,8 +35,7 @@ const ListBox = ({ handleToggle, toggledIndices, data, classes }) => (
       >
         {item}
       </button>
-      ))}
-  </div>
-  );
+    )}
+  </div>;
 
 export default injectSheet(styles)(ListBox);

@@ -32,7 +32,7 @@ const dataGridData = [
   { home: 'barHome', forum: 'barForum', chat: 'barChat' },
   { home: 'bazHome', forum: 'bazForum', chat: 'bazChat' },
   { home: 'quuxHome', forum: 'quuxForum', chat: 'quuxChat' },
-]
+];
 
 class App extends React.Component {
   constructor(props) {
@@ -62,18 +62,22 @@ class App extends React.Component {
 
   handleComboBoxChange(e) {
     const v = e.target.value;
-    this.setState(update(this.state, {
-      comboBoxInputValue: { $set: v },
-      comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
-    }));
+    this.setState(
+      update(this.state, {
+        comboBoxInputValue: { $set: v },
+        comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
+      })
+    );
   }
 
   handleComboBoxClick(idx) {
     const v = this.state.comboBoxOptions[idx];
-    this.setState(update(this.state, {
-      comboBoxInputValue: { $set: v },
-      comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
-    }));
+    this.setState(
+      update(this.state, {
+        comboBoxInputValue: { $set: v },
+        comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
+      })
+    );
   }
 
   handleComboBoxKeyDown(e) {
@@ -90,10 +94,7 @@ class App extends React.Component {
         break;
 
       case 'ArrowUp':
-        newIdx = Math.max(
-          this.state.comboBoxHighlighted - 1,
-          0
-        );
+        newIdx = Math.max(this.state.comboBoxHighlighted - 1, 0);
         this.setState({
           comboBoxHighlighted: newIdx,
         });
@@ -101,7 +102,8 @@ class App extends React.Component {
 
       case 'Enter':
         const newVal = this.state.comboBoxOptions[
-          this.state.comboBoxHighlighted];
+          this.state.comboBoxHighlighted
+        ];
         this.setState({
           comboBoxInputValue: newVal,
         });
@@ -117,29 +119,31 @@ class App extends React.Component {
     let newIdx = -1;
     switch (e.key) {
       case 'ArrowDown':
-        newIdx = Math.min(this.state.highlightedCell.idx + 1,
-          dataGridData.length - 1);
+        newIdx = Math.min(
+          this.state.highlightedCell.idx + 1,
+          dataGridData.length - 1
+        );
         newCoords = update(this.state.highlightedCell, {
           idx: { $set: newIdx },
         });
         break;
       case 'ArrowLeft':
-        newIdx = Math.max(this.state.highlightedCell.hidx - 1,
-          0);
+        newIdx = Math.max(this.state.highlightedCell.hidx - 1, 0);
         newCoords = update(this.state.highlightedCell, {
           hidx: { $set: newIdx },
         });
         break;
       case 'ArrowRight':
-        newIdx = Math.min(this.state.highlightedCell.hidx + 1,
-          dataGridHeaders.length - 1);
+        newIdx = Math.min(
+          this.state.highlightedCell.hidx + 1,
+          dataGridHeaders.length - 1
+        );
         newCoords = update(this.state.highlightedCell, {
           hidx: { $set: newIdx },
         });
         break;
       case 'ArrowUp':
-        newIdx = Math.max(this.state.highlightedCell.idx - 1,
-          0);
+        newIdx = Math.max(this.state.highlightedCell.idx - 1, 0);
         newCoords = update(this.state.highlightedCell, {
           idx: { $set: newIdx },
         });
@@ -185,13 +189,15 @@ class App extends React.Component {
     const containingIdx = this.state.toggledListBoxIndices.indexOf(idx);
     if (containingIdx === -1) {
       this.setState({
-        toggledListBoxIndices: update(this.state.toggledListBoxIndices,
-          { $push: [idx] }),
+        toggledListBoxIndices: update(this.state.toggledListBoxIndices, {
+          $push: [idx],
+        }),
       });
     } else {
       this.setState({
-        toggledListBoxIndices: update(this.state.toggledListBoxIndices,
-          { $splice: [[containingIdx, 1]] }),
+        toggledListBoxIndices: update(this.state.toggledListBoxIndices, {
+          $splice: [[containingIdx, 1]],
+        }),
       });
     }
   }
@@ -212,22 +218,22 @@ class App extends React.Component {
         <Accordion
           activated={this.state.accordionOpen}
           data={[
-          { title: 'Home', text: 'Some text' },
-          { title: 'Forum', text: 'Some more text' },
-          { title: 'Chat', text: 'Even more text' },
+            { title: 'Home', text: 'Some text' },
+            { title: 'Forum', text: 'Some more text' },
+            { title: 'Chat', text: 'Even more text' },
           ]}
           handleToggle={this.toggleAccordion}
         />
 
         <h3 className={classes.Heading}>Alert</h3>
-        <Alert text='This is the text of the Alert' />
+        <Alert text="This is the text of the Alert" />
 
         <h3 className={classes.Heading}>Breadcrumb</h3>
         <Breadcrumb
           data={[
-          { text: 'Home', link: '/#/home' },
-          { text: 'Forum', link: '/#/forum' },
-          { text: 'Chat', link: '/#/chat' },
+            { text: 'Home', link: '/#/home' },
+            { text: 'Forum', link: '/#/forum' },
+            { text: 'Chat', link: '/#/chat' },
           ]}
         />
 
@@ -261,9 +267,9 @@ class App extends React.Component {
         <h3 className={classes.Heading}>MenuBar</h3>
         <MenuBar
           data={[
-          { title: 'Home', text: 'Some text' },
-          { title: 'Forum', text: 'Some more text' },
-          { title: 'Chat', text: 'Even more text' },
+            { title: 'Home', text: 'Some text' },
+            { title: 'Forum', text: 'Some more text' },
+            { title: 'Chat', text: 'Even more text' },
           ]}
           toggledIdx={this.state.toggledMenuIdx}
           handleToggle={this.toggleMenuBar}
@@ -272,9 +278,9 @@ class App extends React.Component {
         <h3 className={classes.Heading}>Tabs</h3>
         <Tabs
           data={[
-          { title: 'Home', text: 'Some text' },
-          { title: 'Forum', text: 'Some more text' },
-          { title: 'Chat', text: 'Even more text' },
+            { title: 'Home', text: 'Some text' },
+            { title: 'Forum', text: 'Some more text' },
+            { title: 'Chat', text: 'Even more text' },
           ]}
           toggledIdx={this.state.toggledTabPanelIdx}
           handleToggle={this.toggleTabPanel}
@@ -284,7 +290,7 @@ class App extends React.Component {
         <ToggleButton
           activated={this.state.toggleActivated}
           handleToggle={this.toggleButton}
-          text='Toggle Button'
+          text="Toggle Button"
         />
 
         <h3 className={classes.Heading}>Toolbar</h3>

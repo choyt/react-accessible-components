@@ -27,14 +27,11 @@ const styles = {
   },
 };
 
-const Accordion = ({ activated, handleToggle, data, classes }) => (
+const Accordion = ({ activated, handleToggle, data, classes }) =>
   <div className={classes.Accordion}>
-    {data.map((item, idx) => (
+    {data.map((item, idx) =>
       <div key={idx} className={classes.Panel}>
-        <button
-          className={classes.Title}
-          onClick={() => handleToggle(idx)}
-        >
+        <button className={classes.Title} onClick={() => handleToggle(idx)}>
           {item.title}
         </button>
         <div
@@ -46,8 +43,7 @@ const Accordion = ({ activated, handleToggle, data, classes }) => (
           {item.text}
         </div>
       </div>
-      ))}
-  </div>
-  );
+    )}
+  </div>;
 
 export default injectSheet(styles)(Accordion);

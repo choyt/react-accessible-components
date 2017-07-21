@@ -10,10 +10,9 @@ const styles = {
   },
 };
 
-const Alert = ({ text, classes }) => (
+const Alert = ({ text, classes }) =>
   <div className={classes.Alert}>
     {text}
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(Alert);

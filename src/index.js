@@ -6,7 +6,4 @@ import './index.css';
 
 a11y(React);
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
