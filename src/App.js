@@ -2,14 +2,10 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import update from 'immutability-helper';
 import Accordion from './components/Accordion';
-import Alert from './components/Alert';
-import Breadcrumb from './components/Breadcrumb';
 import ComboBox from './components/ComboBox';
 import DataGrid from './components/DataGrid';
 import ListBox from './components/ListBox';
-import MenuBar from './components/MenuBar';
-import Tabs from './components/Tabs';
-import ToggleButton from './components/ToggleButton';
+import TabList from './components/TabList';
 import Toolbar from './components/Toolbar';
 
 const styles = {
@@ -225,18 +221,6 @@ class App extends React.Component {
           handleToggle={this.toggleAccordion}
         />
 
-        <h3 className={classes.Heading}>Alert</h3>
-        <Alert text="This is the text of the Alert" />
-
-        <h3 className={classes.Heading}>Breadcrumb</h3>
-        <Breadcrumb
-          data={[
-            { text: 'Home', link: '/#/home' },
-            { text: 'Forum', link: '/#/forum' },
-            { text: 'Chat', link: '/#/chat' },
-          ]}
-        />
-
         <h3 className={classes.Heading}>ComboBox</h3>
         <ComboBox
           handleChange={this.handleComboBoxChange}
@@ -264,19 +248,8 @@ class App extends React.Component {
           data={['Home', 'Forum', 'Chat']}
         />
 
-        <h3 className={classes.Heading}>MenuBar</h3>
-        <MenuBar
-          data={[
-            { title: 'Home', text: 'Some text' },
-            { title: 'Forum', text: 'Some more text' },
-            { title: 'Chat', text: 'Even more text' },
-          ]}
-          toggledIdx={this.state.toggledMenuIdx}
-          handleToggle={this.toggleMenuBar}
-        />
-
-        <h3 className={classes.Heading}>Tabs</h3>
-        <Tabs
+        <h3 className={classes.Heading}>TabList</h3>
+        <TabList
           data={[
             { title: 'Home', text: 'Some text' },
             { title: 'Forum', text: 'Some more text' },
@@ -284,13 +257,6 @@ class App extends React.Component {
           ]}
           toggledIdx={this.state.toggledTabPanelIdx}
           handleToggle={this.toggleTabPanel}
-        />
-
-        <h3 className={classes.Heading}>ToggleButton</h3>
-        <ToggleButton
-          activated={this.state.toggleActivated}
-          handleToggle={this.toggleButton}
-          text="Toggle Button"
         />
 
         <h3 className={classes.Heading}>Toolbar</h3>

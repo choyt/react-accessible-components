@@ -14,6 +14,9 @@ const styles = {
       border: '1px solid black',
     },
   },
+  DataTable: {
+    borderSpacing: 0,
+  },
   Highlighted: {},
 };
 
@@ -33,7 +36,7 @@ const DataGrid = ({
     onKeyDown={handleKeyDown}
     tabIndex={0}
   >
-    <table>
+    <table className={classes.DataTable}>
       <thead>
         <tr>
           {headers.map((val, idx) =>

@@ -28,3 +28,19 @@ const Toolbar = ({ data, classes }) =>
   </div>;
 
 export default injectSheet(styles)(Toolbar);
+
+/*
+<div role="toolbar" id="customToolbar" tabindex="0" aria-activedescendant="button1"
+      onkeydown="return optionKeyEvent(event);"
+      onkeypress="return optionKeyEvent(event);"
+      onblur="hideFocus();"
+      onfocus="showFocus();"
+      >
+      <img src="img/btn1.gif" title="Home" alt="Home" role="button" id="button1"
+           onclick="updateText('Home was invoked');">
+      <img src="img/btn2.gif" title="Refresh" alt="Refresh" role="button" id="button2"
+           onclick="updateText('Refresh was invoked');">
+      <img src="img/btn3.gif" title="Help" alt="Help" role="button" id="button3"
+           onclick="updateText('Help was invoked');">
+</div>
+*/
