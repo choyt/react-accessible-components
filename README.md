@@ -1,18 +1,22 @@
 # Installation
+```
 1. npm install
 2. npm start
 3. visit localhost:3000
 4. that's it
+```
 
 ## Linting
+```
 npm -g install prettier
 prettier --single-quote --trailing-comma es5 --write "{src,__{tests,mocks}__}/**/*.js"
+```
 
 This project was created to provide a set of components which conform to the latest recommendations made by the WAI-ARIA accessibility group. The recommendations followed can be found here: http://w3c.github.io/aria/aria/aria.html
 
 # Definitions of States and Properties (all aria-* attributes)
 - aria-activedescendant
-  Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application.
+  - Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application.
 - aria-atomic
 Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute.
 - aria-autocomplete
