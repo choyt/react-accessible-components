@@ -16,11 +16,14 @@ This project was created to provide a set of components which conform to the lat
 
 # Definitions of States and Properties (all aria-* attributes)
 - aria-activedescendant
-  - Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application.
+
+  Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application.
 - aria-atomic
-Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute.
+
+  Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute.
 - aria-autocomplete
-Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made.
+
+  Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made.
 - aria-busy
 Indicates an element is being modified and that assistive technologies may want to wait until the modifications are complete before exposing them to the user.
 - aria-checked
