@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const TopNav = ({ classes }) => (
+const TopNav = ({ classes }) =>
   <div className={classes.TopNav}>
     <p>TopNav</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(TopNav);

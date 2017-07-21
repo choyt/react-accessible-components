@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const LayoutGrid = ({ classes }) => (
+const LayoutGrid = ({ classes }) =>
   <div className={classes.LayoutGrid}>
     <p>LayoutGrid</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(LayoutGrid);

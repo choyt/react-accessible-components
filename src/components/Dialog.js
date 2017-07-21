@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const Dialog = ({ classes }) => (
+const Dialog = ({ classes }) =>
   <div className={classes.Dialog}>
     <p>Dialog</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(Dialog);

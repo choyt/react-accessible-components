@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const Tooltip = ({ classes, children }) => (
+const Tooltip = ({ classes, children }) =>
   <div className={classes.Tooltip}>
     {children}
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(Tooltip);

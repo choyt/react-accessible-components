@@ -18,14 +18,13 @@ const styles = {
   },
 };
 
-const Toolbar = ({ data, classes }) => (
+const Toolbar = ({ data, classes }) =>
   <div className={classes.Toolbar}>
-    {data.map((item, idx) => (
+    {data.map((item, idx) =>
       <button key={idx} className={classes.Button}>
         {item}
       </button>
-      ))}
-  </div>
-  );
+    )}
+  </div>;
 
 export default injectSheet(styles)(Toolbar);

@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const SideNav = ({ classes }) => (
+const SideNav = ({ classes }) =>
   <div className={classes.SideNav}>
     <p>SideNav</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(SideNav);

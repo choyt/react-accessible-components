@@ -26,9 +26,9 @@ const styles = {
   },
 };
 
-const Tabs = ({ data, handleToggle, toggledIdx, classes }) => (
+const Tabs = ({ data, handleToggle, toggledIdx, classes }) =>
   <div className={classes.Tabs}>
-    {data.map((val, idx) => (
+    {data.map((val, idx) =>
       <button
         className={classes.Tab}
         key={idx}
@@ -36,11 +36,10 @@ const Tabs = ({ data, handleToggle, toggledIdx, classes }) => (
       >
         {val.title}
       </button>
-    ))}
+    )}
     <div className={classes.TabPanel}>
       {data[toggledIdx].text}
     </div>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(Tabs);

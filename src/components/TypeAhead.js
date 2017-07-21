@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const TypeAhead = ({ classes }) => (
+const TypeAhead = ({ classes }) =>
   <div className={classes.TypeAhead}>
     <p>TypeAhead</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(TypeAhead);

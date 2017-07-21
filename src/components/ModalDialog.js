@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const ModalDialog = ({ classes }) => (
+const ModalDialog = ({ classes }) =>
   <div className={classes.ModalDialog}>
     <p>ModalDialog</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(ModalDialog);

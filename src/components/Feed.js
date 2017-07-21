@@ -7,10 +7,9 @@ const styles = {
   },
 };
 
-const Feed = ({ classes }) => (
+const Feed = ({ classes }) =>
   <div className={classes.Feed}>
     <p>Feed</p>
-  </div>
-  );
+  </div>;
 
 export default injectSheet(styles)(Feed);
