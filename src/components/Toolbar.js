@@ -30,7 +30,10 @@ const Toolbar = ({ data, classes }) =>
 export default injectSheet(styles)(Toolbar);
 
 /*
-<div role="toolbar" id="customToolbar" tabindex="0" aria-activedescendant="button1"
+<div role="toolbar" 
+      id="customToolbar" 
+      tabindex="0" 
+      aria-activedescendant="button1"
       onkeydown="return optionKeyEvent(event);"
       onkeypress="return optionKeyEvent(event);"
       onblur="hideFocus();"
