@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 const styles = {
   ListBox: {
-    textAlign: 'center',
     padding: '.5em',
+    textAlign: 'center',
   },
   Title: {
     backgroundColor: 'white',

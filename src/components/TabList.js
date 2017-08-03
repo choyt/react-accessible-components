@@ -20,8 +20,8 @@ const styles = {
   },
   TabList: {
     display: 'inline-block',
-    textAlign: 'center',
     padding: '.5em',
+    textAlign: 'center',
   },
 };
 

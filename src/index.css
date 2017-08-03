@@ -5,6 +5,7 @@ span {
   align-content: flex-start;
   align-items: stretch;
   border: 1px solid lightgray;
+  border-radius: 2px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

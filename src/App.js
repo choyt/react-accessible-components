@@ -30,12 +30,14 @@ const dataGridData = [
   { home: 'quuxHome', forum: 'quuxForum', chat: 'quuxChat' },
 ];
 
+// TODO: Implement ComboBox isOpen logic
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       comboBoxHighlighted: -1,
       comboBoxInputValue: '',
+      comboBoxIsOpen: true,
       comboBoxOptions: comboBoxOptions,
       highlightedCell: { idx: -1, hidx: -1 },
       toggleActivated: false,
@@ -95,12 +97,15 @@ class App extends React.Component {
         break;
 
       case 'Enter':
-        const newVal = this.state.comboBoxOptions[
+        const v = this.state.comboBoxOptions[
           this.state.comboBoxHighlighted
         ];
-        this.setState({
-          comboBoxInputValue: newVal,
-        });
+        this.setState(
+          update(this.state, {
+            comboBoxInputValue: { $set: v },
+            comboBoxOptions: { $set: comboBoxOptions.filter(i => i.includes(v)) },
+          })
+        );
         break;
 
       default:
@@ -206,6 +211,7 @@ class App extends React.Component {
           handleKeyDown={this.handleComboBoxKeyDown}
           highlightedIdx={this.state.comboBoxHighlighted}
           inputValue={this.state.comboBoxInputValue}
+          isOpen={this.state.comboBoxIsOpen}
           options={this.state.comboBoxOptions}
         />
 

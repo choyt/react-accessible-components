@@ -33,6 +33,7 @@ const AutoComplete = ({
   handleChange,
   handleKeyDown,
   inputValue,
+  isOpen,
   options,
 }) =>
   <div className={classes.AutoComplete}>
@@ -46,13 +47,16 @@ const AutoComplete = ({
         value={inputValue} //
       />
     </div>
-    <ul className={classes.ListBox} role="listbox">
+    
+    {isOpen ? 
+    <div className={classes.ListBox} role="listbox">
       {options.map((option, idx) =>
-        <li className={classes.ListItem} key={idx}>
+        <div className={classes.ListItem} key={idx}>
           {option}
-        </li>
+        </div>
       )}
-    </ul>
+    </div> :
+    null}
   </div>;
 
 export default injectSheet(styles)(AutoComplete);
