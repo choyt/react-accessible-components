@@ -13,7 +13,9 @@ const styles = {
     padding: '0',
   },
   ListItem: {
+    border: '1px solid lightgray',
     cursor: 'pointer',
+    padding: '.5em',
   },
 };
 

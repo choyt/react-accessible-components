@@ -11,7 +11,8 @@ const styles = {
   DataGrid: {
     textAlign: '-webkit-center',
     '& tr > *': {
-      border: '1px solid black',
+      border: '1px solid lightgray',
+      padding: '.5em',
     },
   },
   DataTable: {

@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 const styles = {
   Button: {
     backgroundColor: 'white',
-    border: '1px solid black',
+    border: '1px solid lightgray',
     cursor: 'pointer',
     padding: '.5em',
     '&:active': {

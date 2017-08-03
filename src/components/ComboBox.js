@@ -12,7 +12,6 @@ const styles = {
   },
   Title: {
     cursor: 'pointer',
-    font: '13.3333px Arial',
     padding: '.5em',
     '&:hover': {
       backgroundColor: 'lightgray',

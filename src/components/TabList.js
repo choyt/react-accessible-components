@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 const styles = {
   Tab: {
     backgroundColor: 'white',
-    border: '1px solid black',
+    border: '1px solid lightgray',
     cursor: 'pointer',
     padding: '.5em',
     '&:active': {
@@ -15,7 +15,7 @@ const styles = {
     },
   },
   TabPanel: {
-    border: '1px solid black',
+    border: '1px solid lightgray',
     padding: '.5em',
   },
   TabList: {
