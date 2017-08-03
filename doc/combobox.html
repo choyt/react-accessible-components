@@ -1,25 +1,24 @@
 <!-- NOTE: Non-functional. Associated CSS/JS purposely absent. -->
 <html><head></head><body>
 <div role="application" tabindex="-1">
+  <form autocomplete="off">
+    <div id="cb1" class="cb" role="combobox" aria-activedescendant="cb1-opt20">
+      <div class="cb_label"><label id="cb1-label" for="cb1-edit">State</label>:</div>
+      <input id="cb1-edit" class="cb_edit" type="text" tabindex="0" aria-labelledby="cb1-label" aria-autocomplete="list" aria-owns="cb1-list" aria-readonly="true">
+      <div id="cb1-button-label" class="hidden">Open list of states</div>
+      <button id="cb1-button" class="cb_button" aria-labelledby="cb1-button-label" aria-controls="cb1-list" tabindex="-1">
+        <img src="http://www.oaa-accessibility.org/media/examples/images/button-arrow-down.png" alt="Open or close the list box">
+      </button>
 
-<form autocomplete="off">
-<div id="cb1" class="cb" role="combobox" aria-activedescendant="cb1-opt20">
-	<div class="cb_label"><label id="cb1-label" for="cb1-edit">State</label>:</div>
-	<input id="cb1-edit" class="cb_edit" type="text" tabindex="0" aria-labelledby="cb1-label" aria-autocomplete="list" aria-owns="cb1-list" aria-readonly="true">
-	<div id="cb1-button-label" class="hidden">Open list of states</div>
-	<button id="cb1-button" class="cb_button" aria-labelledby="cb1-button-label" aria-controls="cb1-list" tabindex="-1">
-		<img src="http://www.oaa-accessibility.org/media/examples/images/button-arrow-down.png" alt="Open or close the list box">
-	</button>
-
-	<ul id="cb1-list" class="cb_list" tabindex="-1" role="listbox" aria-expanded="false" style="display: none;">
-		<li id="cb1-opt1" role="option" class="cb_option" tabindex="-1">Alabama</li>
-		<li id="cb1-opt2" role="option" class="cb_option" tabindex="-1">Alaska</li>
-		<li id="cb1-opt3" role="option" class="cb_option" tabindex="-1">American Samoa</li>
-		<li id="cb1-opt20" role="option" class="cb_option selected" tabindex="-1">Kentucky</li>
-		<li id="cb1-opt21" role="option" class="cb_option" tabindex="-1">Louisiana</li>
-		<li id="cb1-opt22" role="option" class="cb_option" tabindex="-1">Maine</li>
-	</ul>
-</div>
-</form>
+      <ul id="cb1-list" class="cb_list" tabindex="-1" role="listbox" aria-expanded="false" style="display: none;">
+        <li id="cb1-opt1" role="option" class="cb_option" tabindex="-1">Alabama</li>
+        <li id="cb1-opt2" role="option" class="cb_option" tabindex="-1">Alaska</li>
+        <li id="cb1-opt3" role="option" class="cb_option" tabindex="-1">American Samoa</li>
+        <li id="cb1-opt20" role="option" class="cb_option selected" tabindex="-1">Kentucky</li>
+        <li id="cb1-opt21" role="option" class="cb_option" tabindex="-1">Louisiana</li>
+        <li id="cb1-opt22" role="option" class="cb_option" tabindex="-1">Maine</li>
+      </ul>
+    </div>
+  </form>
 </div>
 </body></html>
