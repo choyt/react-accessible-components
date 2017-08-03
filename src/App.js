@@ -1,7 +1,6 @@
 import React from 'react';
 import injectSheet from 'react-jss';
 import update from 'immutability-helper';
-import Accordion from './components/Accordion';
 import AutoComplete from './components/AutoComplete';
 import ComboBox from './components/ComboBox';
 import DataGrid from './components/DataGrid';
@@ -35,7 +34,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      accordionOpen: -1,
       comboBoxHighlighted: -1,
       comboBoxInputValue: '',
       comboBoxOptions: comboBoxOptions,
@@ -50,7 +48,6 @@ class App extends React.Component {
     this.handleDataGridBlur = this.handleDataGridBlur.bind(this);
     this.handleDataGridFocus = this.handleDataGridFocus.bind(this);
     this.handleDataGridKeyDown = this.handleDataGridKeyDown.bind(this);
-    this.toggleAccordion = this.toggleAccordion.bind(this);
     this.toggleButton = this.toggleButton.bind(this);
     this.toggleListBox = this.toggleListBox.bind(this);
     this.toggleMenuBar = this.toggleMenuBar.bind(this);
@@ -164,18 +161,6 @@ class App extends React.Component {
     });
   }
 
-  toggleAccordion(num) {
-    if (num === this.state.accordionOpen) {
-      this.setState({
-        accordionOpen: -1,
-      });
-    } else {
-      this.setState({
-        accordionOpen: num,
-      });
-    }
-  }
-
   toggleButton() {
     this.setState({
       toggleActivated: !this.state.toggleActivated,
@@ -211,17 +196,6 @@ class App extends React.Component {
     const classes = this.props.classes;
     return (
       <div className={classes.App}>
-        <h3 className={classes.Heading}>Accordion</h3>
-        <Accordion
-          activated={this.state.accordionOpen}
-          data={[
-            { title: 'Home', text: 'Some text' },
-            { title: 'Forum', text: 'Some more text' },
-            { title: 'Chat', text: 'Even more text' },
-          ]}
-          handleToggle={this.toggleAccordion}
-        />
-
         <h3 className={classes.Heading}>AutoComplete</h3>
         <AutoComplete options={['Home', 'Forum', 'Chat']} />
 
