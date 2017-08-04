@@ -4,7 +4,6 @@ import update from 'immutability-helper';
 import AutoComplete from './components/AutoComplete';
 import ComboBox from './components/ComboBox';
 import DataGrid from './components/DataGrid';
-import ListBox from './components/ListBox';
 import TabList from './components/TabList';
 import Toolbar from './components/Toolbar';
 
@@ -41,7 +40,6 @@ class App extends React.Component {
       comboBoxOptions: comboBoxOptions,
       highlightedCell: { idx: -1, hidx: -1 },
       toggleActivated: false,
-      toggledListBoxIndices: [],
       toggledTabPanelIdx: 1,
     };
     this.handleComboBoxChange = this.handleComboBoxChange.bind(this);
@@ -51,7 +49,6 @@ class App extends React.Component {
     this.handleDataGridFocus = this.handleDataGridFocus.bind(this);
     this.handleDataGridKeyDown = this.handleDataGridKeyDown.bind(this);
     this.toggleButton = this.toggleButton.bind(this);
-    this.toggleListBox = this.toggleListBox.bind(this);
     this.toggleMenuBar = this.toggleMenuBar.bind(this);
     this.toggleTabPanel = this.toggleTabPanel.bind(this);
   }
@@ -172,23 +169,6 @@ class App extends React.Component {
     });
   }
 
-  toggleListBox(idx) {
-    const containingIdx = this.state.toggledListBoxIndices.indexOf(idx);
-    if (containingIdx === -1) {
-      this.setState({
-        toggledListBoxIndices: update(this.state.toggledListBoxIndices, {
-          $push: [idx],
-        }),
-      });
-    } else {
-      this.setState({
-        toggledListBoxIndices: update(this.state.toggledListBoxIndices, {
-          $splice: [[containingIdx, 1]],
-        }),
-      });
-    }
-  }
-
   toggleTabPanel(idx) {
     this.setState({ toggledTabPanelIdx: idx });
   }
@@ -223,13 +203,6 @@ class App extends React.Component {
           handleKeyDown={this.handleDataGridKeyDown}
           headers={dataGridHeaders}
           highlightedCell={this.state.highlightedCell}
-        />
-
-        <h3 className={classes.Heading}>ListBox</h3>
-        <ListBox
-          handleToggle={this.toggleListBox}
-          toggledIndices={this.state.toggledListBoxIndices}
-          data={['Home', 'Forum', 'Chat']}
         />
 
         <h3 className={classes.Heading}>TabList</h3>
