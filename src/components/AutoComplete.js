@@ -60,37 +60,3 @@ const AutoComplete = ({
   </div>;
 
 export default injectSheet(styles)(AutoComplete);
-
-/*
-<div
-  aria-label="Tag"
-  role="combobox"
-  aria-expanded="true"
-  aria-owns="owned_listbox"
-  aria-haspopup="listbox"
- >
-    <input
-      type="text"
-      aria-autocomplete="list"
-      aria-controls="owned_listbox"
-      aria-activedescendant="selected_option"
-    >
-</div>
-<ul role="listbox" id="owned_listbox">
-    <li role="option">Zebra</li>
-    <li role="option" id="selected_option">Zoom</li>
-</ul>
-
-const addCounting = compose(
-  withState('counter', 'setCounter', 0),
-  withHandlers({
-    increment: ({ setCounter }) => () => setCounter(n => n + 1),
-    decrement: ({ setCounter }) => () =>  setCounter(n => n - 1),
-    reset: ({ setCounter }) => () => setCounter(0)
-  })
-)
-
-
-const withCondition = conditionalRenderingFn => Component => props =>
-  conditionalRenderingFn(props) ? null : <Component {...props} />;
-*/
